@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   # resources :destinations
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  root to: "pages#home"
+
   ### User ###
   get "/users", to: "users#index", as: "users"
   get "/users/new", to: "users#new", as: "new_user"
@@ -37,7 +39,9 @@ Rails.application.routes.draw do
   get "/vacations/:id", to: "vacations#show", as: "vacation"
   get "/vacations/:id/edit", to: "vacations#edit", as: "edit_vacation"
   patch "/vacations/:id", to: "vacations#update"
-  delete "/vacations/:id", to: "vacations#destroy"
+  delete "/vacations/:id", to: "vacations#destroy", as: "delete_vacation"
+  get "/vacations/:id/edit_flight", to: "vacations#edit_flight", as: "edit_flight"
+  patch "/vacations/:id/edit_flight", to: "vacations#update_flight"
 
   ### Activities ###
   get "/activities", to: "activities#index", as: "activities"
@@ -46,5 +50,6 @@ Rails.application.routes.draw do
   ### Flights ###
   get "/flights", to: "flights#index", as: "flights"
   get "/flights/:id", to: "flights#show", as: "flight"
+
 
 end

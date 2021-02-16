@@ -1,0 +1,6 @@
+<h1>Plan a new vacation</h1>
+<%= form_for @vacation do |f| %>
+    <%= f.label :destination_id%>
+    <%= f.collection_select :destination_id, @destinations, :id, :name %>
+    <%= f.submit %>
+<% end %>

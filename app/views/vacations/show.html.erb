@@ -1,0 +1,16 @@
+<h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+<p><%= link_to "add a flight or change your flight information", edit_flight_path%></p>
+
+<%if @vacation.departure_flight%>
+    <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%>
+<%end%>
+
+<h2>General information about <%= @vacation.destination.name%></h2>
+
+<p>Language: <%=@vacation.destination.language%></p>
+
+<p><%= @vacation.destination.description %></p>
+
+<p>Highlights: <%= @vacation.destination.highlights%></p>
+
+<%= button_to "delete this vacation", delete_vacation_path(@vacation), method: "delete" %>

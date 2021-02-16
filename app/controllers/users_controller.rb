@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     skip_before_action :authorized, only: [:login, :handle_login, :new, :create]
-
+    skip_before_action :verify_authenticity_token, only: [:login, :handle_login]
     def login
     end
 

@@ -1,10 +1,10 @@
 class Vacation < ApplicationRecord
   belongs_to :user
   belongs_to :destination
-  has_many :departures
-  has_many :departure_flights, through: :departures, source: :departure_flight
-  has_many :arrivals
-  has_many :arrival_flights, through: :arrivals, source: :arrival_flight 
+  has_one :departure
+  has_one :departure_flight, through: :departure, source: :departure_flight
+  has_many :arrival
+  has_many :arrival_flight, through: :arrival, source: :arrival_flight 
   has_many :vacation_activities
   has_many :activities, through: :vacation_activities
 

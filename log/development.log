@@ -3822,3 +3822,2604 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 2.0ms | Allocations: 7346)
 
 
+Started GET "/" for ::1 at 2021-02-16 13:35:54 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 237)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 9201)
+Completed 200 OK in 55ms (Views: 16.3ms | ActiveRecord: 18.0ms | Allocations: 21604)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:57:14 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 349)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 9308)
+Completed 200 OK in 59ms (Views: 14.9ms | ActiveRecord: 17.5ms | Allocations: 21711)
+
+
+Started GET "/login" for ::1 at 2021-02-16 13:58:27 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.4ms | Allocations: 218)
+  Rendered users/login.html.erb within layouts/application (Duration: 1.7ms | Allocations: 946)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4927)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 5906)
+
+
+Started GET "/login" for ::1 at 2021-02-16 13:58:49 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.3ms | Allocations: 53)
+  Rendered users/login.html.erb within layouts/application (Duration: 2.1ms | Allocations: 377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 5025)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.0ms | Allocations: 5408)
+
+
+Started GET "/login" for ::1 at 2021-02-16 13:59:24 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.2ms | Allocations: 53)
+  Rendered users/login.html.erb within layouts/application (Duration: 2.9ms | Allocations: 377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 4377)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms | Allocations: 4762)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 13:59:33 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"kim", "password"=>"[FILTERED]", "commit"=>"Login"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 639)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.1.2.1) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (6.1.2.1) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (6.1.2.1) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (6.1.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:512:in `block in invoke_before'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:512:in `each'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:512:in `invoke_before'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:115:in `block in run_callbacks'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.2.1) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.2.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.2.1) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.2.1) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.2.1) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.2.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.2.1) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.2.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.2.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.2.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.2.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.2.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.2.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.2.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.2.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.2.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.2.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.2.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.2.1) lib/rails/engine.rb:539:in `call'
+puma (5.2.1) lib/puma/configuration.rb:247:in `call'
+puma (5.2.1) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.1) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.1) lib/puma/server.rb:431:in `process_client'
+puma (5.2.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/login" for ::1 at 2021-02-16 13:59:51 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.2ms | Allocations: 60)
+  Rendered users/login.html.erb within layouts/application (Duration: 1.5ms | Allocations: 441)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 4561)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms | Allocations: 5036)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 13:59:54 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"kim", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kim"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `handle_login'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 319ms (ActiveRecord: 18.0ms | Allocations: 8550)
+
+
+Started GET "/login" for ::1 at 2021-02-16 13:59:54 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/login.html.erb within layouts/application (Duration: 0.5ms | Allocations: 382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 4382)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 4771)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 14:00:02 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"kim", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kim"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `handle_login'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 297ms (ActiveRecord: 1.5ms | Allocations: 1032)
+
+
+Started GET "/login" for ::1 at 2021-02-16 14:00:02 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/login.html.erb within layouts/application (Duration: 0.4ms | Allocations: 382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 4382)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 4771)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 14:00:20 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"sam", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "sam"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `handle_login'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 302ms (ActiveRecord: 1.4ms | Allocations: 1028)
+
+
+Started GET "/login" for ::1 at 2021-02-16 14:00:20 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/login.html.erb within layouts/application (Duration: 0.5ms | Allocations: 382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 4380)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms | Allocations: 4769)
+
+
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (24.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "VacationPlanner_development"[0m
+  [1m[35m (24.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "VacationPlanner_test"[0m
+  [1m[35m (69.6ms)[0m  [1m[35mCREATE DATABASE "VacationPlanner_development" ENCODING = 'unicode'[0m
+  [1m[35m (30.7ms)[0m  [1m[35mCREATE DATABASE "VacationPlanner_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "activities" CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "name" character varying, "destination_id" bigint NOT NULL, "price" float, "time_duration" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_activities_on_destination_id" ON "activities" ("destination_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "arrivals" CASCADE[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "arrivals" ("id" bigserial primary key, "vacation_id" bigint NOT NULL, "flight_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_arrivals_on_flight_id" ON "arrivals" ("flight_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_arrivals_on_vacation_id" ON "arrivals" ("vacation_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departures" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "departures" ("id" bigserial primary key, "vacation_id" bigint NOT NULL, "flight_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_departures_on_flight_id" ON "departures" ("flight_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_departures_on_vacation_id" ON "departures" ("vacation_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "destinations" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" bigserial primary key, "name" character varying, "language" character varying, "description" text, "highlights" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "flights" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "flights" ("id" bigserial primary key, "flight_number" integer, "departure_airport" character varying, "arrival_airport" character varying, "price" float, "departure_time" timestamp, "arrival_time" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "vacation_activities" CASCADE[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "vacation_activities" ("id" bigserial primary key, "activity_id" bigint NOT NULL, "vacation_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_activity_id" ON "vacation_activities" ("activity_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_vacation_id" ON "vacation_activities" ("vacation_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "vacations" CASCADE[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "vacations" ("id" bigserial primary key, "user_id" bigint NOT NULL, "destination_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_destination_id" ON "vacations" ("destination_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_user_id" ON "vacations" ("user_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "activities" ADD CONSTRAINT "fk_rails_80bc852622"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "arrivals" ADD CONSTRAINT "fk_rails_f3cce2dcc4"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "arrivals" ADD CONSTRAINT "fk_rails_aec951f8c4"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "departures" ADD CONSTRAINT "fk_rails_1feda8b50c"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "departures" ADD CONSTRAINT "fk_rails_4b761411ba"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "vacation_activities" ADD CONSTRAINT "fk_rails_49daa98d67"
+FOREIGN KEY ("activity_id")
+  REFERENCES "activities" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "vacation_activities" ADD CONSTRAINT "fk_rails_370e1ca29e"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "vacations" ADD CONSTRAINT "fk_rails_8c85bb500d"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "vacations" ADD CONSTRAINT "fk_rails_10fe255323"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210212171241)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210212160106),
+(20210212160312),
+(20210212160425),
+(20210212160856),
+(20210212161032),
+(20210212161214),
+(20210212171227);
+
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-16 19:00:32.553288"], ["updated_at", "2021-02-16 19:00:32.553288"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "55897bd62baa20fd5441c15431218386b1875a9b"], ["created_at", "2021-02-16 19:00:32.557875"], ["updated_at", "2021-02-16 19:00:32.557875"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "activities" CASCADE[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "name" character varying, "destination_id" bigint NOT NULL, "price" float, "time_duration" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_activities_on_destination_id" ON "activities" ("destination_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "arrivals" CASCADE[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "arrivals" ("id" bigserial primary key, "vacation_id" bigint NOT NULL, "flight_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_arrivals_on_flight_id" ON "arrivals" ("flight_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_arrivals_on_vacation_id" ON "arrivals" ("vacation_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departures" CASCADE[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "departures" ("id" bigserial primary key, "vacation_id" bigint NOT NULL, "flight_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_departures_on_flight_id" ON "departures" ("flight_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_departures_on_vacation_id" ON "departures" ("vacation_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "destinations" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" bigserial primary key, "name" character varying, "language" character varying, "description" text, "highlights" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "flights" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "flights" ("id" bigserial primary key, "flight_number" integer, "departure_airport" character varying, "arrival_airport" character varying, "price" float, "departure_time" timestamp, "arrival_time" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "vacation_activities" CASCADE[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "vacation_activities" ("id" bigserial primary key, "activity_id" bigint NOT NULL, "vacation_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_activity_id" ON "vacation_activities" ("activity_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_vacation_id" ON "vacation_activities" ("vacation_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "vacations" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "vacations" ("id" bigserial primary key, "user_id" bigint NOT NULL, "destination_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_destination_id" ON "vacations" ("destination_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_user_id" ON "vacations" ("user_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "activities" ADD CONSTRAINT "fk_rails_80bc852622"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "arrivals" ADD CONSTRAINT "fk_rails_f3cce2dcc4"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "arrivals" ADD CONSTRAINT "fk_rails_aec951f8c4"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "departures" ADD CONSTRAINT "fk_rails_1feda8b50c"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "departures" ADD CONSTRAINT "fk_rails_4b761411ba"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "vacation_activities" ADD CONSTRAINT "fk_rails_49daa98d67"
+FOREIGN KEY ("activity_id")
+  REFERENCES "activities" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "vacation_activities" ADD CONSTRAINT "fk_rails_370e1ca29e"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "vacations" ADD CONSTRAINT "fk_rails_8c85bb500d"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "vacations" ADD CONSTRAINT "fk_rails_10fe255323"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210212171241)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210212160106),
+(20210212160312),
+(20210212160425),
+(20210212160856),
+(20210212161032),
+(20210212161214),
+(20210212171227);
+
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-16 19:00:32.634787"], ["updated_at", "2021-02-16 19:00:32.634787"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-02-16 19:00:32.639994"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "55897bd62baa20fd5441c15431218386b1875a9b"], ["created_at", "2021-02-16 19:00:32.645059"], ["updated_at", "2021-02-16 19:00:32.645059"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (4.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Sam123"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sam@gmail"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sam"], ["username", "Sam123"], ["password_digest", "$2a$12$.c13qIKS96BUWlwqvnFqbeO9qh/nIyNMRoGrjivDVxBOEQYccKiry"], ["email", "sam@gmail"], ["created_at", "2021-02-16 19:00:32.982607"], ["updated_at", "2021-02-16 19:00:32.982607"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Create (1.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Chicago"], ["language", "Chicagoan"], ["description", "Windy"], ["highlights", "The bean"], ["created_at", "2021-02-16 19:00:33.005883"], ["updated_at", "2021-02-16 19:00:33.005883"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlight Create (1.2ms)[0m  [1m[32mINSERT INTO "flights" ("flight_number", "departure_airport", "arrival_airport", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_number", 1], ["departure_airport", "JFK"], ["arrival_airport", "Chicago"], ["price", 2.0], ["created_at", "2021-02-16 19:00:33.026426"], ["updated_at", "2021-02-16 19:00:33.026426"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlight Create (0.7ms)[0m  [1m[32mINSERT INTO "flights" ("flight_number", "departure_airport", "arrival_airport", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_number", 999], ["departure_airport", "Chicago"], ["arrival_airport", "JFK"], ["price", 100.0], ["created_at", "2021-02-16 19:00:33.030040"], ["updated_at", "2021-02-16 19:00:33.030040"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Create (2.6ms)[0m  [1m[32mINSERT INTO "vacations" ("user_id", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["destination_id", 1], ["created_at", "2021-02-16 19:00:33.052936"], ["updated_at", "2021-02-16 19:00:33.052936"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Load (0.5ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.6ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDeparture Create (2.1ms)[0m  [1m[32mINSERT INTO "departures" ("vacation_id", "flight_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["vacation_id", 1], ["flight_id", 1], ["created_at", "2021-02-16 19:00:33.078374"], ["updated_at", "2021-02-16 19:00:33.078374"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Load (0.5ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArrival Create (2.3ms)[0m  [1m[32mINSERT INTO "arrivals" ("vacation_id", "flight_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["vacation_id", 1], ["flight_id", 2], ["created_at", "2021-02-16 19:00:33.100910"], ["updated_at", "2021-02-16 19:00:33.100910"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/new" for ::1 at 2021-02-16 14:00:42 -0500
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.2ms | Allocations: 210)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4012)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 12996)
+Completed 200 OK in 63ms (Views: 31.0ms | ActiveRecord: 16.8ms | Allocations: 24144)
+
+
+Started POST "/users" for ::1 at 2021-02-16 14:00:58 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"sam", "username"=>"sam", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>"sam@gmail.com"}, "commit"=>"Create Account"}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Exists? (3.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "sam"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sam@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "sam"], ["username", "sam"], ["password_digest", "$2a$12$YPeFKzLEhenmKi4NQYijg.OPlkI25sCkeIIjj7RypMdf91ovXfpQi"], ["email", "sam@gmail.com"], ["created_at", "2021-02-16 19:00:58.855118"], ["updated_at", "2021-02-16 19:00:58.855118"]]
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "sam"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "sam@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `create'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 321ms (ActiveRecord: 14.8ms | Allocations: 7240)
+
+
+Started GET "/users/2" for ::1 at 2021-02-16 14:00:58 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 24.6ms | Allocations: 10074)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 13979)
+Completed 200 OK in 33ms (Views: 19.0ms | ActiveRecord: 11.9ms | Allocations: 15534)
+
+
+Started GET "/" for ::1 at 2021-02-16 14:01:05 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 207)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4171)
+Completed 200 OK in 23ms (Views: 12.4ms | ActiveRecord: 2.5ms | Allocations: 5862)
+
+
+Started GET "/login" for ::1 at 2021-02-16 14:01:07 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.2ms | Allocations: 53)
+  Rendered users/login.html.erb within layouts/application (Duration: 3.0ms | Allocations: 624)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 4625)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 5140)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 14:01:11 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"sam", "password"=>"[FILTERED]", "commit"=>"Login"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 626)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.1.2.1) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (6.1.2.1) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (6.1.2.1) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (6.1.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:512:in `block in invoke_before'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:512:in `each'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:512:in `invoke_before'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:115:in `block in run_callbacks'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.2.1) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.2.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.2.1) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.2.1) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.2.1) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.2.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.2.1) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.2.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.2.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.2.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.2.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.2.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.2.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.2.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.2.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.2.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.2.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.2.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.2.1) lib/rails/engine.rb:539:in `call'
+puma (5.2.1) lib/puma/configuration.rb:247:in `call'
+puma (5.2.1) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.1) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.1) lib/puma/server.rb:431:in `process_client'
+puma (5.2.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/" for ::1 at 2021-02-16 14:03:12 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 109)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 4245)
+Completed 200 OK in 20ms (Views: 13.8ms | ActiveRecord: 1.7ms | Allocations: 5522)
+
+
+Started GET "/login" for ::1 at 2021-02-16 14:03:14 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.3ms | Allocations: 56)
+  Rendered users/login.html.erb within layouts/application (Duration: 1.6ms | Allocations: 408)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 4410)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 4798)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 14:03:19 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"sam", "password"=>"[FILTERED]", "commit"=>"Login"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 639)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.1.2.1) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (6.1.2.1) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (6.1.2.1) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (6.1.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:512:in `block in invoke_before'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:512:in `each'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:512:in `invoke_before'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:115:in `block in run_callbacks'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.2.1) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.2.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.2.1) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.2.1) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.2.1) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.2.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.2.1) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.2.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.2.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.2.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.2.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.2.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.2.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.2.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.2.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.2.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.2.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.2.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.2.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.2.1) lib/rails/engine.rb:539:in `call'
+puma (5.2.1) lib/puma/configuration.rb:247:in `call'
+puma (5.2.1) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.1) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.1) lib/puma/server.rb:431:in `process_client'
+puma (5.2.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/login" for ::1 at 2021-02-16 14:03:22 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.2ms | Allocations: 53)
+  Rendered users/login.html.erb within layouts/application (Duration: 1.5ms | Allocations: 377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4376)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 4757)
+
+
+Started GET "/users/new" for ::1 at 2021-02-16 14:03:23 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1287)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 5285)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 5708)
+
+
+Started POST "/users" for ::1 at 2021-02-16 14:03:35 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"max", "username"=>"max", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>"max@gmail.com"}, "commit"=>"Create Account"}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "max"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "max@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "max"], ["username", "max"], ["password_digest", "$2a$12$wDbIT0U1Eb2c23QPapgPeeM6YJr6HIGh8zhToEHFnfH973rnDfOZ."], ["email", "max@gmail.com"], ["created_at", "2021-02-16 19:03:35.923939"], ["updated_at", "2021-02-16 19:03:35.923939"]]
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "max"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "max@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `create'
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 311ms (ActiveRecord: 7.2ms | Allocations: 6479)
+
+
+Started GET "/users/3" for ::1 at 2021-02-16 14:03:35 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2288)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 6286)
+Completed 200 OK in 11ms (Views: 6.2ms | ActiveRecord: 3.4ms | Allocations: 7395)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-16 14:03:37 -0500
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms | Allocations: 1009)
+
+
+Started GET "/login" for ::1 at 2021-02-16 14:03:37 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 53)
+  Rendered users/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4375)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 4754)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 14:03:42 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"max", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "max"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `handle_login'
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 309ms (ActiveRecord: 2.2ms | Allocations: 1115)
+
+
+Started GET "/users/3" for ::1 at 2021-02-16 14:03:43 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (1.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2239)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 6238)
+Completed 200 OK in 11ms (Views: 5.7ms | ActiveRecord: 3.4ms | Allocations: 7348)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-16 14:04:20 -0500
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms | Allocations: 1020)
+
+
+Started GET "/login" for ::1 at 2021-02-16 14:04:20 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 53)
+  Rendered users/login.html.erb within layouts/application (Duration: 0.7ms | Allocations: 377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4375)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 4754)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 14:04:24 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"sam", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "sam"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `handle_login'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 302ms (ActiveRecord: 1.4ms | Allocations: 1018)
+
+
+Started GET "/users/2" for ::1 at 2021-02-16 14:04:24 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (1.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2242)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 6240)
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 2.6ms | Allocations: 7349)
+
+
+Started GET "/" for ::1 at 2021-02-16 14:06:41 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 92)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 4057)
+Completed 200 OK in 40ms (Views: 5.0ms | ActiveRecord: 16.9ms | Allocations: 12732)
+
+
+Started GET "/login" for ::1 at 2021-02-16 14:06:42 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.2ms | Allocations: 53)
+  Rendered users/login.html.erb within layouts/application (Duration: 2.0ms | Allocations: 384)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 4383)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 4962)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 14:06:46 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"sam", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "sam"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `handle_login'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 296ms (ActiveRecord: 1.7ms | Allocations: 1072)
+
+
+Started GET "/users/2" for ::1 at 2021-02-16 14:06:46 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (0.8ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 12.8ms | Allocations: 7657)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 11558)
+Completed 200 OK in 19ms (Views: 10.0ms | ActiveRecord: 7.2ms | Allocations: 12670)
+
+
+Started GET "/" for ::1 at 2021-02-16 14:06:51 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 84)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4083)
+Completed 200 OK in 17ms (Views: 11.6ms | ActiveRecord: 1.4ms | Allocations: 5189)
+
+
+Started GET "/login" for ::1 at 2021-02-16 14:06:53 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.3ms | Allocations: 53)
+  Rendered users/login.html.erb within layouts/application (Duration: 1.8ms | Allocations: 377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 4375)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 4747)
+
+
+Started GET "/users/new" for ::1 at 2021-02-16 14:06:53 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered users/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1272)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 5270)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 5685)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 14:06:58 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"max", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "max"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `handle_login'
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 303ms (ActiveRecord: 1.3ms | Allocations: 974)
+
+
+Started GET "/users/3" for ::1 at 2021-02-16 14:06:58 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2239)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 6238)
+Completed 200 OK in 10ms (Views: 5.8ms | ActiveRecord: 2.5ms | Allocations: 7351)
+
+
+Started GET "/vacations/new" for ::1 at 2021-02-16 14:07:49 -0500
+Processing by VacationsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/new.html.erb within layouts/application
+  [1m[36mDestination Load (1.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/views/vacations/new.html.erb:4
+  Rendered vacations/new.html.erb within layouts/application (Duration: 23.9ms | Allocations: 5854)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 9832)
+Completed 200 OK in 90ms (Views: 23.6ms | ActiveRecord: 44.3ms | Allocations: 27596)
+
+
+Started POST "/vacations" for ::1 at 2021-02-16 14:07:53 -0500
+Processing by VacationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "vacation"=>{"destination_id"=>"1"}, "commit"=>"Create Vacation"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:21:in `create'
+  [1m[36mDestination Load (2.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/vacations_controller.rb:21:in `create'
+Redirected to http://localhost:3000/vacations/new
+Completed 302 Found in 27ms (ActiveRecord: 6.7ms | Allocations: 6655)
+
+
+Started GET "/vacations/new" for ::1 at 2021-02-16 14:07:53 -0500
+Processing by VacationsController#new as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/new.html.erb within layouts/application
+  [1m[36mDestination Load (1.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/views/vacations/new.html.erb:4
+  Rendered vacations/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1253)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 5252)
+Completed 200 OK in 22ms (Views: 13.8ms | ActiveRecord: 3.6ms | Allocations: 6437)
+
+
+Started POST "/vacations" for ::1 at 2021-02-16 14:08:12 -0500
+Processing by VacationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "vacation"=>{"destination_id"=>"1"}, "commit"=>"Create Vacation"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:21:in `create'
+  [1m[36mDestination Load (1.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/vacations_controller.rb:21:in `create'
+Redirected to http://localhost:3000/vacations/new
+Completed 302 Found in 20ms (ActiveRecord: 6.3ms | Allocations: 4903)
+
+
+Started GET "/vacations/new" for ::1 at 2021-02-16 14:08:12 -0500
+Processing by VacationsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/new.html.erb within layouts/application
+  [1m[36mDestination Load (1.8ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/views/vacations/new.html.erb:4
+  Rendered vacations/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1252)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 5250)
+Completed 200 OK in 15ms (Views: 9.0ms | ActiveRecord: 2.9ms | Allocations: 6430)
+
+
+Started POST "/vacations" for ::1 at 2021-02-16 14:08:36 -0500
+Processing by VacationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "vacation"=>{"destination_id"=>"1"}, "commit"=>"Create Vacation"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:21:in `create'
+  [1m[36mDestination Load (1.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/vacations_controller.rb:21:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:22:in `create'
+  [1m[36mVacation Create (2.2ms)[0m  [1m[32mINSERT INTO "vacations" ("user_id", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["destination_id", 1], ["created_at", "2021-02-16 19:08:36.814603"], ["updated_at", "2021-02-16 19:08:36.814603"]]
+  ↳ app/controllers/vacations_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/vacations_controller.rb:22:in `create'
+Redirected to http://localhost:3000/vacations/2
+Completed 302 Found in 75ms (ActiveRecord: 49.8ms | Allocations: 29062)
+
+
+Started GET "/vacations/2" for ::1 at 2021-02-16 14:08:36 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:57:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  Rendered vacations/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 4114)
+Completed 200 OK in 10ms (Views: 5.1ms | ActiveRecord: 1.3ms | Allocations: 6188)
+
+
+Started GET "/vacations/2" for ::1 at 2021-02-16 14:10:09 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (2.9ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:57:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (2.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  Rendered vacations/show.html.erb within layouts/application (Duration: 5.6ms | Allocations: 927)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 5115)
+Completed 200 OK in 32ms (Views: 17.1ms | ActiveRecord: 6.5ms | Allocations: 7554)
+
+
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" ORDER BY "vacations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFlight Load (2.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+Started GET "/vacations/2" for ::1 at 2021-02-16 14:22:46 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:57:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (3.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 2], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 52.0ms | Allocations: 18953)
+  Rendered layout layouts/application.html.erb (Duration: 52.1ms | Allocations: 19028)
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 66.0ms | Allocations: 38906)
+
+
+  
+ActionView::Template::Error (undefined method `departure_airport' for nil:NilClass):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <%= link_to "add or change your flight information", edit_flight_path%>
+    3: 
+    4: <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%>
+  
+app/views/vacations/show.html.erb:4
+Started GET "/vacations/2" for ::1 at 2021-02-16 14:25:11 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 2], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 53.7ms | Allocations: 15312)
+  Rendered layout layouts/application.html.erb (Duration: 53.8ms | Allocations: 15383)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 62.1ms | Allocations: 31430)
+
+
+  
+ActionView::Template::Error (undefined method `departure_airport' for nil:NilClass):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <%= link_to "add or change your flight information", edit_flight_path%>
+    3: 
+    4: <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%>
+  
+app/views/vacations/show.html.erb:4
+Started GET "/vacations/2" for ::1 at 2021-02-16 14:25:13 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (2.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (2.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (2.0ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 2], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 11.6ms | Allocations: 3163)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 3234)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 8.2ms | Allocations: 5294)
+
+
+  
+ActionView::Template::Error (undefined method `departure_airport' for nil:NilClass):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <%= link_to "add or change your flight information", edit_flight_path%>
+    3: 
+    4: <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%>
+  
+app/views/vacations/show.html.erb:4
+Started GET "/vacations/2" for ::1 at 2021-02-16 14:25:24 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (2.4ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (2.9ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 2], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 19.9ms | Allocations: 3163)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 3234)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 9.0ms | Allocations: 5294)
+
+
+  
+ActionView::Template::Error (undefined method `departure_airport' for nil:NilClass):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <%= link_to "add or change your flight information", edit_flight_path%>
+    3: 
+    4: <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%>
+  
+app/views/vacations/show.html.erb:4
+Started GET "/vacations/new" for ::1 at 2021-02-16 14:25:25 -0500
+Processing by VacationsController#new as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/new.html.erb within layouts/application
+  [1m[36mDestination Load (2.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/views/vacations/new.html.erb:4
+  Rendered vacations/new.html.erb within layouts/application (Duration: 14.4ms | Allocations: 3217)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.2ms | Allocations: 12203)
+Completed 200 OK in 45ms (Views: 34.2ms | ActiveRecord: 4.5ms | Allocations: 13500)
+
+
+Started POST "/vacations" for ::1 at 2021-02-16 14:25:27 -0500
+Processing by VacationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "vacation"=>{"destination_id"=>"1"}, "commit"=>"Create Vacation"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:22:in `create'
+  [1m[36mDestination Load (2.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/vacations_controller.rb:22:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:23:in `create'
+  [1m[36mVacation Create (2.6ms)[0m  [1m[32mINSERT INTO "vacations" ("user_id", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["destination_id", 1], ["created_at", "2021-02-16 19:25:27.675779"], ["updated_at", "2021-02-16 19:25:27.675779"]]
+  ↳ app/controllers/vacations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/vacations_controller.rb:23:in `create'
+Redirected to http://localhost:3000/vacations/3
+Completed 302 Found in 31ms (ActiveRecord: 13.0ms | Allocations: 8677)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:25:27 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3165)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 3236)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 6.7ms | Allocations: 5280)
+
+
+  
+ActionView::Template::Error (undefined method `departure_airport' for nil:NilClass):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <%= link_to "add or change your flight information", edit_flight_path%>
+    3: 
+    4: <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%>
+  
+app/views/vacations/show.html.erb:4
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:25:49 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (2.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  Rendered vacations/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1005)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 5194)
+Completed 200 OK in 33ms (Views: 17.5ms | ActiveRecord: 5.8ms | Allocations: 8007)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:26:42 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.6ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  Rendered vacations/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1007)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 5194)
+Completed 200 OK in 33ms (Views: 18.0ms | ActiveRecord: 5.3ms | Allocations: 8003)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:27:09 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mDeparture Load (1.7ms)[0m  [1m[34mSELECT "departures".* FROM "departures" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:3
+  Rendered vacations/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1972)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 6160)
+Completed 200 OK in 19ms (Views: 11.2ms | ActiveRecord: 4.3ms | Allocations: 8969)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:27:13 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.3ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.6ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mDeparture Load (1.4ms)[0m  [1m[34mSELECT "departures".* FROM "departures" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:3
+  Rendered vacations/show.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1668)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 5668)
+Completed 200 OK in 34ms (Views: 21.3ms | ActiveRecord: 5.8ms | Allocations: 7734)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:27:18 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.8ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.6ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:3
+  Rendered vacations/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1987)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 6175)
+Completed 200 OK in 26ms (Views: 11.7ms | ActiveRecord: 5.9ms | Allocations: 8989)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:27:19 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.5ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (2.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (2.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:3
+  Rendered vacations/show.html.erb within layouts/application (Duration: 11.3ms | Allocations: 1855)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 5855)
+Completed 200 OK in 33ms (Views: 16.1ms | ActiveRecord: 7.7ms | Allocations: 7920)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:27:27 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.8ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (0.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (0.9ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:3
+  Rendered vacations/show.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3292)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3362)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 3.5ms | Allocations: 6150)
+
+
+  
+ActionView::Template::Error (undefined method `departure_time' for nil:NilClass):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <p><%= link_to "add or change your flight information", edit_flight_path%></p>
+    3: <%= @vacation.departure_flight.departure_time %>
+  
+app/views/vacations/show.html.erb:3
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:28:13 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.5ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (0.8ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (0.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 3299)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3369)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 2.6ms | Allocations: 6161)
+
+
+  
+ActionView::Template::Error (undefined method `departure_airport' for nil:NilClass):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <p><%= link_to "add or change your flight information", edit_flight_path%></p>
+    3: 
+    4: <!-- <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%> -->
+  
+app/views/vacations/show.html.erb:4
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:28:15 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (2.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (2.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 25.7ms | Allocations: 3160)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 3230)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 7.2ms | Allocations: 5273)
+
+
+  
+ActionView::Template::Error (undefined method `departure_airport' for nil:NilClass):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <p><%= link_to "add or change your flight information", edit_flight_path%></p>
+    3: 
+    4: <!-- <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%> -->
+  
+app/views/vacations/show.html.erb:4
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:28:19 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (2.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (2.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.8ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 17.4ms | Allocations: 3160)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 3230)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 8.4ms | Allocations: 5273)
+
+
+  
+ActionView::Template::Error (undefined method `departure_airport' for nil:NilClass):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <p><%= link_to "add or change your flight information", edit_flight_path%></p>
+    3: 
+    4: <!-- <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%> -->
+  
+app/views/vacations/show.html.erb:4
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:28:22 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.5ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 10.3ms | Allocations: 3297)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 3367)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 6.3ms | Allocations: 6159)
+
+
+  
+ActionView::Template::Error (undefined method `departure_airport' for nil:NilClass):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <p><%= link_to "add or change your flight information", edit_flight_path%></p>
+    3: 
+    4: <!-- <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%> -->
+  
+app/views/vacations/show.html.erb:4
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:28:29 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  Rendered vacations/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1007)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 5195)
+Completed 200 OK in 16ms (Views: 9.2ms | ActiveRecord: 2.9ms | Allocations: 8008)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:29:02 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.8ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  Rendered vacations/show.html.erb within layouts/application (Duration: 21.5ms | Allocations: 3706)
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 3776)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 4.9ms | Allocations: 6564)
+
+
+  
+ActionView::Template::Error (undefined method `depature_flight' for #<Vacation:0x00007fd9d02954d0>
+Did you mean?  departure_flight
+               departure_flight=):
+    1: <h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+    2: <p><%= link_to "add or change your flight information", edit_flight_path%></p>
+    3: 
+    4: <%if @vacation.depature_flight%>
+    5:     <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%>
+    6: <%end%>
+  
+app/views/vacations/show.html.erb:4
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:29:14 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.8ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:58:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (0.9ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2009)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 6197)
+Completed 200 OK in 20ms (Views: 11.0ms | ActiveRecord: 3.8ms | Allocations: 9010)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:39:29 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.5ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (2.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (2.6ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 24.6ms | Allocations: 13160)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 13230)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 25.2ms | Allocations: 31524)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    5:     <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%>
+    6: <%end%>
+    7: 
+    8: <h2><%= @vacation.destination.name "Information" %>
+  
+app/views/vacations/show.html.erb:8
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:39:47 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.5ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.6ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2034)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 6223)
+Completed 200 OK in 31ms (Views: 19.6ms | ActiveRecord: 6.2ms | Allocations: 9038)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:40:05 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (2.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.4ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.8ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 13.2ms | Allocations: 2035)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 6222)
+Completed 200 OK in 33ms (Views: 18.6ms | ActiveRecord: 7.1ms | Allocations: 9037)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:40:58 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (2.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (2.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2055)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 6242)
+Completed 200 OK in 29ms (Views: 11.7ms | ActiveRecord: 7.7ms | Allocations: 9052)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:43:36 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 13.5ms | Allocations: 2093)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 6286)
+Completed 200 OK in 26ms (Views: 17.2ms | ActiveRecord: 4.4ms | Allocations: 9097)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:44:25 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2090)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 6277)
+Completed 200 OK in 21ms (Views: 8.9ms | ActiveRecord: 6.0ms | Allocations: 9092)
+
+
+Started GET "/vacations/3" for ::1 at 2021-02-16 14:47:22 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.5ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (0.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.8ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 54.8ms | Allocations: 14422)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.8ms | Allocations: 18512)
+Completed 200 OK in 121ms (Views: 27.7ms | ActiveRecord: 76.7ms | Allocations: 35009)
+
+
+Started GET "/users/1" for ::1 at 2021-02-16 14:48:05 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (1.2ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:13
+  [1m[36mDestination Load (1.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:14
+  [1m[36mCACHE Destination Load (0.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:14
+  Rendered users/show.html.erb within layouts/application (Duration: 23.5ms | Allocations: 5911)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 47.2ms | Allocations: 9813)
+Completed 200 OK in 59ms (Views: 45.4ms | ActiveRecord: 7.9ms | Allocations: 11513)
+
+
+Started GET "/vacations/2" for ::1 at 2021-02-16 14:48:11 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (2.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.9ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 2], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 11.3ms | Allocations: 1975)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 5975)
+Completed 200 OK in 29ms (Views: 14.7ms | ActiveRecord: 6.9ms | Allocations: 8043)
+
+
+Started DELETE "/vacations/2" for ::1 at 2021-02-16 14:48:12 -0500
+Processing by VacationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:51:in `destroy'
+  [1m[36mVacation Destroy (6.1ms)[0m  [1m[31mDELETE FROM "vacations" WHERE "vacations"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/vacations_controller.rb:51:in `destroy'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/vacations_controller.rb:51:in `destroy'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 27ms (ActiveRecord: 13.6ms | Allocations: 3970)
+
+
+Started GET "/users/3" for ::1 at 2021-02-16 14:48:12 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (1.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:13
+  [1m[36mDestination Load (1.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:14
+  Rendered users/show.html.erb within layouts/application (Duration: 10.8ms | Allocations: 3077)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 7075)
+Completed 200 OK in 23ms (Views: 13.2ms | ActiveRecord: 5.9ms | Allocations: 8188)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-16 14:49:42 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (0.6ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (0.8ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 46.7ms | Allocations: 18325)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 50.4ms | Allocations: 22228)
+Completed 200 OK in 95ms (Views: 18.1ms | ActiveRecord: 60.7ms | Allocations: 37956)
+
+
+Started GET "/vacations/10" for ::1 at 2021-02-16 14:49:47 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+Completed 404 Not Found in 8ms (ActiveRecord: 2.5ms | Allocations: 1862)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vacation with 'id'=10):
+  
+app/controllers/vacations_controller.rb:62:in `find_vacation'
+Started GET "/vacations/1" for ::1 at 2021-02-16 14:49:50 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.5ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.7ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (3.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 11.7ms | Allocations: 1991)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 5990)
+Completed 200 OK in 32ms (Views: 16.8ms | ActiveRecord: 7.9ms | Allocations: 8054)
+
+
+Started GET "/users/3" for ::1 at 2021-02-16 14:49:53 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (2.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:13
+  [1m[36mDestination Load (2.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:14
+  Rendered users/show.html.erb within layouts/application (Duration: 18.8ms | Allocations: 4406)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.9ms | Allocations: 8308)
+Completed 200 OK in 34ms (Views: 21.6ms | ActiveRecord: 8.2ms | Allocations: 9627)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-16 14:49:55 -0500
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms | Allocations: 1012)
+
+
+Started GET "/login" for ::1 at 2021-02-16 14:49:55 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.6ms | Allocations: 214)
+  Rendered users/login.html.erb within layouts/application (Duration: 2.9ms | Allocations: 918)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 4917)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 5414)
+
+
+Started POST "/handle_login" for ::1 at 2021-02-16 14:50:01 -0500
+Processing by UsersController#handle_login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"sam", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "sam"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `handle_login'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 302ms (ActiveRecord: 1.7ms | Allocations: 1076)
+
+
+Started GET "/users/2" for ::1 at 2021-02-16 14:50:01 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (0.8ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2244)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 6242)
+Completed 200 OK in 24ms (Views: 19.3ms | ActiveRecord: 2.8ms | Allocations: 7356)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-16 14:50:07 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:62:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (2.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:4
+  Rendered vacations/show.html.erb within layouts/application (Duration: 12.4ms | Allocations: 1999)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 5999)
+Completed 200 OK in 33ms (Views: 17.2ms | ActiveRecord: 7.6ms | Allocations: 8065)
+
+
+Started GET "/users/2" for ::1 at 2021-02-16 14:54:03 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (1.5ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 14.3ms | Allocations: 6874)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 10776)
+Completed 200 OK in 43ms (Views: 11.8ms | ActiveRecord: 22.2ms | Allocations: 19333)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-16 14:54:05 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.5ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:63:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/2
+Filter chain halted as :owns_vacation rendered or redirected
+Completed 302 Found in 20ms (ActiveRecord: 10.9ms | Allocations: 4788)
+
+
+Started GET "/users/2" for ::1 at 2021-02-16 14:54:05 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2239)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 6237)
+Completed 200 OK in 13ms (Views: 7.8ms | ActiveRecord: 3.0ms | Allocations: 7349)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-16 14:54:11 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:63:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/2
+Filter chain halted as :owns_vacation rendered or redirected
+Completed 302 Found in 15ms (ActiveRecord: 3.7ms | Allocations: 2336)
+
+
+Started GET "/users/2" for ::1 at 2021-02-16 14:54:11 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2240)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 6238)
+Completed 200 OK in 18ms (Views: 12.0ms | ActiveRecord: 3.8ms | Allocations: 7350)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:02:05 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1623)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1693)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 18.8ms | Allocations: 15185)
+
+
+  
+ActionView::Template::Error (undefined method `departure_flight' for nil:NilClass):
+    1: <h1>All possible destinations </h1>
+    2: <p><%= link_to "add a flight or change your flight information", edit_flight_path%></p>
+    3: 
+    4: <%if @vacation.departure_flight%>
+    5:     <%= "Your flight departs from #{@vacation.departure_flight.departure_airport} at #{@vacation.departure_flight.departure_time} and arrives at #{@vacation.departure_flight.arrival_time}."%>
+    6: <%end%>
+    7: 
+  
+app/views/destinations/show.html.erb:4
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:02:44 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1493)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1563)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 22.8ms | Allocations: 10855)
+
+
+  
+ActionView::Template::Error (undefined method `destination' for nil:NilClass):
+    1: <h1>All possible destinations </h1>
+    2: 
+    3:     
+    4: <h2>General information about <%= @vacation.destination.name%></h2>
+    5: 
+    6: <p>Language: <%=@vacation.destination.language%></p>
+    7: 
+  
+app/views/destinations/show.html.erb:4
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:03:09 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 122)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4311)
+Completed 200 OK in 46ms (Views: 37.6ms | ActiveRecord: 2.1ms | Allocations: 6167)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:04:02 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 4020)
+Completed 200 OK in 27ms (Views: 4.5ms | ActiveRecord: 14.5ms | Allocations: 12563)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:05:03 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4304)
+Completed 200 OK in 21ms (Views: 12.7ms | ActiveRecord: 2.2ms | Allocations: 6158)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "destinations"[0m
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:06:32 -0500
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 239)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 9239)
+Completed 200 OK in 51ms (Views: 12.2ms | ActiveRecord: 19.1ms | Allocations: 21643)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:06:33 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 4041)
+Completed 200 OK in 22ms (Views: 16.0ms | ActiveRecord: 1.5ms | Allocations: 5167)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:06:41 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 121)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4311)
+Completed 200 OK in 14ms (Views: 9.7ms | ActiveRecord: 1.1ms | Allocations: 6184)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:06:42 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4040)
+Completed 200 OK in 17ms (Views: 10.3ms | ActiveRecord: 1.9ms | Allocations: 5163)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:06:55 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4306)
+Completed 200 OK in 15ms (Views: 8.0ms | ActiveRecord: 1.6ms | Allocations: 6174)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:07:04 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4304)
+Completed 200 OK in 16ms (Views: 9.4ms | ActiveRecord: 2.0ms | Allocations: 6155)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:07:05 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 4038)
+Completed 200 OK in 19ms (Views: 13.1ms | ActiveRecord: 1.6ms | Allocations: 5145)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:07:34 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 4304)
+Completed 200 OK in 37ms (Views: 30.1ms | ActiveRecord: 1.6ms | Allocations: 6155)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:07:40 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4039)
+Completed 200 OK in 24ms (Views: 15.2ms | ActiveRecord: 2.3ms | Allocations: 5149)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:08:58 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 121)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4309)
+Completed 200 OK in 25ms (Views: 16.9ms | ActiveRecord: 1.4ms | Allocations: 6166)
+
+
+  [1m[36mDestination Load (0.7ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:10:51 -0500
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 240)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 48.2ms | Allocations: 9240)
+Completed 200 OK in 95ms (Views: 51.1ms | ActiveRecord: 20.2ms | Allocations: 21644)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:10:51 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 4039)
+Completed 200 OK in 11ms (Views: 4.8ms | ActiveRecord: 1.3ms | Allocations: 5146)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:10:52 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 4040)
+Completed 200 OK in 23ms (Views: 12.9ms | ActiveRecord: 4.2ms | Allocations: 5162)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:10:54 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4040)
+Completed 200 OK in 18ms (Views: 13.7ms | ActiveRecord: 1.3ms | Allocations: 5162)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:11:02 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 121)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4311)
+Completed 200 OK in 27ms (Views: 16.3ms | ActiveRecord: 2.5ms | Allocations: 6184)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:11:27 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 4304)
+Completed 200 OK in 22ms (Views: 14.9ms | ActiveRecord: 2.4ms | Allocations: 6156)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:11:28 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 4038)
+Completed 200 OK in 23ms (Views: 16.0ms | ActiveRecord: 2.1ms | Allocations: 5145)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:11:38 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 4304)
+Completed 200 OK in 24ms (Views: 16.8ms | ActiveRecord: 1.5ms | Allocations: 6155)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:11:38 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4039)
+Completed 200 OK in 22ms (Views: 12.1ms | ActiveRecord: 1.7ms | Allocations: 5149)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:11:40 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 4040)
+Completed 200 OK in 23ms (Views: 14.2ms | ActiveRecord: 2.2ms | Allocations: 5162)
+
+
+Started GET "/" for ::1 at 2021-02-16 15:12:55 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 257)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4406)
+Completed 200 OK in 19ms (Views: 12.6ms | ActiveRecord: 1.3ms | Allocations: 6265)
+
+
+Started GET "/destinations" for ::1 at 2021-02-16 15:12:57 -0500
+Processing by DestinationsController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/index.html.erb within layouts/application
+  [1m[36mDestination Load (2.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/views/destinations/index.html.erb:6
+  [1m[36mDestination Load (1.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/destinations/index.html.erb:11
+  Rendered destinations/index.html.erb within layouts/application (Duration: 25.7ms | Allocations: 5911)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 9913)
+Completed 200 OK in 51ms (Views: 16.8ms | ActiveRecord: 19.4ms | Allocations: 13593)
+
+
+Started GET "/destinations" for ::1 at 2021-02-16 15:13:25 -0500
+Processing by DestinationsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/index.html.erb within layouts/application
+  [1m[36mDestination Load (1.7ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/views/destinations/index.html.erb:4
+  [1m[36mDestination Load (1.5ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/destinations/index.html.erb:9
+  Rendered destinations/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1676)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 5863)
+Completed 200 OK in 24ms (Views: 14.9ms | ActiveRecord: 4.5ms | Allocations: 7728)
+
+
+Started GET "/destinations/index" for ::1 at 2021-02-16 15:13:31 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 4119)
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 1.4ms | Allocations: 5354)
+
+
+Started GET "/destinations" for ::1 at 2021-02-16 15:13:47 -0500
+Processing by DestinationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/index.html.erb within layouts/application
+  [1m[36mDestination Load (1.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/views/destinations/index.html.erb:4
+  [1m[36mDestination Load (1.6ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/destinations/index.html.erb:9
+  Rendered destinations/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1529)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 5529)
+Completed 200 OK in 13ms (Views: 6.8ms | ActiveRecord: 3.5ms | Allocations: 6652)
+
+
+Started GET "/destinations/1" for ::1 at 2021-02-16 15:14:54 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 11.7ms | Allocations: 3818)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 3888)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 2.6ms | Allocations: 5728)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1><%= @destination.name%> Info Page </h1>
+  
+app/views/destinations/show.html.erb:1
+Started GET "/destinations/1" for ::1 at 2021-02-16 15:15:36 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mDestination Load (0.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/destinations_controller.rb:13:in `find_destination'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 42)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 4341)
+Completed 200 OK in 48ms (Views: 5.6ms | ActiveRecord: 27.4ms | Allocations: 19575)
+
+
+Started GET "/destinations/1" for ::1 at 2021-02-16 15:16:27 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mDestination Load (0.8ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/destinations_controller.rb:13:in `find_destination'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 140)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 4308)
+Completed 200 OK in 49ms (Views: 6.4ms | ActiveRecord: 27.0ms | Allocations: 19817)
+
+
+Started GET "/destinations/1" for ::1 at 2021-02-16 15:17:01 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mDestination Load (2.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/destinations_controller.rb:13:in `find_destination'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 40)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 4040)
+Completed 200 OK in 22ms (Views: 12.4ms | ActiveRecord: 3.6ms | Allocations: 5732)
+
+
+Started GET "/destinations/1" for ::1 at 2021-02-16 15:17:02 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mDestination Load (1.7ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/destinations_controller.rb:13:in `find_destination'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 40)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 4040)
+Completed 200 OK in 19ms (Views: 9.9ms | ActiveRecord: 3.2ms | Allocations: 5730)
+
+
+Started GET "/destinations/1" for ::1 at 2021-02-16 15:18:19 -0500
+Processing by DestinationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mDestination Load (1.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/destinations_controller.rb:13:in `find_destination'
+  Rendering layout layouts/application.html.erb
+  Rendering destinations/show.html.erb within layouts/application
+  Rendered destinations/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 198)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4366)
+Completed 200 OK in 52ms (Views: 7.9ms | ActiveRecord: 28.8ms | Allocations: 19873)
+
+
