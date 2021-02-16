@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  destination: one
+  price: 1.5
+  time_duration: 1.5
+
+two:
+  name: MyString
+  destination: two
+  price: 1.5
+  time_duration: 1.5

@@ -1,0 +1,248 @@
+  [1m[35m (728.9ms)[0m  [1m[35mCREATE DATABASE "VacationPlanner_development" ENCODING = 'unicode'[0m
+  [1m[35m (386.4ms)[0m  [1m[35mCREATE DATABASE "VacationPlanner_test" ENCODING = 'unicode'[0m
+Started GET "/restaurant_pizzas/new" for ::1 at 2021-02-12 10:42:19 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/restaurant_pizzas/new"):
+  
+Started GET "/" for ::1 at 2021-02-12 10:42:21 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/max/.rvm/gems/ruby-2.6.1/gems/railties-6.1.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/max/.rvm/gems/ruby-2.6.1/gems/railties-6.1.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 14.0ms | Allocations: 233)
+Completed 200 OK in 44ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 2435)
+
+
+Started GET "/restaurant_pizzas/new" for ::1 at 2021-02-12 10:48:34 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/restaurant_pizzas/new"):
+  
+  [1m[35m (187.7ms)[0m  [1m[35mCREATE DATABASE "VacationPlanner_development" ENCODING = 'unicode'[0m
+  [1m[35m (162.5ms)[0m  [1m[35mCREATE DATABASE "VacationPlanner_test" ENCODING = 'unicode'[0m
+  [1m[35m (22.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6149741736734318310)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20210212160106)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210212160106"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDestinations (20210212160312)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" bigserial primary key, "name" character varying, "language" character varying, "description" text, "highlights" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210212160312"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActivities (20210212160425)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.1ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "name" character varying, "destination_id" bigint NOT NULL, "price" float, "time_duration" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_80bc852622"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE INDEX "index_activities_on_destination_id" ON "activities" ("destination_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210212160425"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFlights (20210212160856)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "flights" ("id" bigserial primary key, "flight_number" integer, "departure_airport" character varying, "arrival_airport" character varying, "price" float, "departure_time" timestamp, "arrival_time" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210212160856"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateVacations (20210212161032)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "vacations" ("id" bigserial primary key, "user_id" bigint NOT NULL, "destination_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_10fe255323"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8c85bb500d"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_user_id" ON "vacations" ("user_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_destination_id" ON "vacations" ("destination_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210212161032"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateVacationFlights (20210212161152)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "vacation_flights" ("id" bigserial primary key, "flight_id" bigint NOT NULL, "vacation_id" bigint NOT NULL, "category" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_160d0968db"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+, CONSTRAINT "fk_rails_eda52010fe"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_vacation_flights_on_flight_id" ON "vacation_flights" ("flight_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_vacation_flights_on_vacation_id" ON "vacation_flights" ("vacation_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210212161152"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateVacationActivities (20210212161214)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "vacation_activities" ("id" bigserial primary key, "activity_id" bigint NOT NULL, "vacation_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_49daa98d67"
+FOREIGN KEY ("activity_id")
+  REFERENCES "activities" ("id")
+, CONSTRAINT "fk_rails_370e1ca29e"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_activity_id" ON "vacation_activities" ("activity_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_vacation_id" ON "vacation_activities" ("vacation_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210212161214"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-12 16:57:28.932090"], ["updated_at", "2021-02-12 16:57:28.932090"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6149741736734318310)[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sam"], ["username", "Sam123"], ["password_digest", "$2a$12$T4PqYh8myu3A5Em58/Nsy.5VWTcQ3kGcd1hEDOYRW09SJ2sMJTrSO"], ["email", "sam@gmail"], ["created_at", "2021-02-12 17:05:42.089066"], ["updated_at", "2021-02-12 17:05:42.089066"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Create (0.9ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Chicago"], ["language", "Chicagoan"], ["description", "Windy"], ["highlights", "The bean"], ["created_at", "2021-02-12 17:05:42.109239"], ["updated_at", "2021-02-12 17:05:42.109239"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlight Create (0.8ms)[0m  [1m[32mINSERT INTO "flights" ("flight_number", "departure_airport", "arrival_airport", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_number", 1], ["departure_airport", "JFK"], ["arrival_airport", "Chicago"], ["price", 2.0], ["created_at", "2021-02-12 17:05:42.129788"], ["updated_at", "2021-02-12 17:05:42.129788"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("flight_number", "departure_airport", "arrival_airport", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_number", 999], ["departure_airport", "Chicago"], ["arrival_airport", "JFK"], ["price", 100.0], ["created_at", "2021-02-12 17:05:42.133970"], ["updated_at", "2021-02-12 17:05:42.133970"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Create (3.1ms)[0m  [1m[32mINSERT INTO "vacations" ("user_id", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["destination_id", 1], ["created_at", "2021-02-12 17:05:42.163670"], ["updated_at", "2021-02-12 17:05:42.163670"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Load (0.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Load (0.3ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mVacation Load (0.8ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" ORDER BY "vacations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sam"], ["username", "Sam123"], ["password_digest", "$2a$12$whzclTR1DXAoNOcZnjK63ud5JpXDv5KdhXb5k.7K1FqYiJ3aVwzZS"], ["email", "sam@gmail"], ["created_at", "2021-02-12 17:07:48.743652"], ["updated_at", "2021-02-12 17:07:48.743652"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Create (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Chicago"], ["language", "Chicagoan"], ["description", "Windy"], ["highlights", "The bean"], ["created_at", "2021-02-12 17:07:48.763455"], ["updated_at", "2021-02-12 17:07:48.763455"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlight Create (2.0ms)[0m  [1m[32mINSERT INTO "flights" ("flight_number", "departure_airport", "arrival_airport", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_number", 1], ["departure_airport", "JFK"], ["arrival_airport", "Chicago"], ["price", 2.0], ["created_at", "2021-02-12 17:07:48.805576"], ["updated_at", "2021-02-12 17:07:48.805576"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("flight_number", "departure_airport", "arrival_airport", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_number", 999], ["departure_airport", "Chicago"], ["arrival_airport", "JFK"], ["price", 100.0], ["created_at", "2021-02-12 17:07:48.813227"], ["updated_at", "2021-02-12 17:07:48.813227"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Create (1.3ms)[0m  [1m[32mINSERT INTO "vacations" ("user_id", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["destination_id", 2], ["created_at", "2021-02-12 17:07:48.834944"], ["updated_at", "2021-02-12 17:07:48.834944"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6149741736734318310)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVacationActivities (20210212161214)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mDROP TABLE "vacation_activities"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210212161214"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateVacationFlights (20210212161152)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mDROP TABLE "vacation_flights"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210212161152"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6149741736734318310)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6149741736734318310)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVacationActivities (20210212161214)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.1ms)[0m  [1m[35mCREATE TABLE "vacation_activities" ("id" bigserial primary key, "activity_id" bigint NOT NULL, "vacation_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_49daa98d67"
+FOREIGN KEY ("activity_id")
+  REFERENCES "activities" ("id")
+, CONSTRAINT "fk_rails_370e1ca29e"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_activity_id" ON "vacation_activities" ("activity_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_vacation_id" ON "vacation_activities" ("vacation_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210212161214"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDepartures (20210212171227)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "departures" ("id" bigserial primary key, "vacation_id" bigint NOT NULL, "flight_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_4b761411ba"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+, CONSTRAINT "fk_rails_1feda8b50c"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_departures_on_vacation_id" ON "departures" ("vacation_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_departures_on_flight_id" ON "departures" ("flight_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210212171227"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArrivals (20210212171241)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "arrivals" ("id" bigserial primary key, "vacation_id" bigint NOT NULL, "flight_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_aec951f8c4"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+, CONSTRAINT "fk_rails_f3cce2dcc4"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_arrivals_on_vacation_id" ON "arrivals" ("vacation_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_arrivals_on_flight_id" ON "arrivals" ("flight_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210212171241"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6149741736734318310)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (7.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sam"], ["username", "Sam123"], ["password_digest", "$2a$12$Ffr/SX1dxUjdQS0zLHluGuz88pQAuRQ6xmugEl/P56eDCUl3WVRk2"], ["email", "sam@gmail"], ["created_at", "2021-02-12 17:19:28.219644"], ["updated_at", "2021-02-12 17:19:28.219644"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Create (1.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Chicago"], ["language", "Chicagoan"], ["description", "Windy"], ["highlights", "The bean"], ["created_at", "2021-02-12 17:19:28.318249"], ["updated_at", "2021-02-12 17:19:28.318249"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlight Create (1.0ms)[0m  [1m[32mINSERT INTO "flights" ("flight_number", "departure_airport", "arrival_airport", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_number", 1], ["departure_airport", "JFK"], ["arrival_airport", "Chicago"], ["price", 2.0], ["created_at", "2021-02-12 17:19:28.376514"], ["updated_at", "2021-02-12 17:19:28.376514"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlight Create (0.9ms)[0m  [1m[32mINSERT INTO "flights" ("flight_number", "departure_airport", "arrival_airport", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_number", 999], ["departure_airport", "Chicago"], ["arrival_airport", "JFK"], ["price", 100.0], ["created_at", "2021-02-12 17:19:28.384862"], ["updated_at", "2021-02-12 17:19:28.384862"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Create (1.7ms)[0m  [1m[32mINSERT INTO "vacations" ("user_id", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["destination_id", 3], ["created_at", "2021-02-12 17:19:28.436732"], ["updated_at", "2021-02-12 17:19:28.436732"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sam"], ["username", "Sam123"], ["password_digest", "$2a$12$XvXEoFytVAWjIksgaPBchOR6hh7VxECzETWC16sg0AirXsO3Jq7m."], ["email", "sam@gmail"], ["created_at", "2021-02-12 17:20:13.063881"], ["updated_at", "2021-02-12 17:20:13.063881"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Create (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Chicago"], ["language", "Chicagoan"], ["description", "Windy"], ["highlights", "The bean"], ["created_at", "2021-02-12 17:20:13.097506"], ["updated_at", "2021-02-12 17:20:13.097506"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlight Create (0.7ms)[0m  [1m[32mINSERT INTO "flights" ("flight_number", "departure_airport", "arrival_airport", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_number", 1], ["departure_airport", "JFK"], ["arrival_airport", "Chicago"], ["price", 2.0], ["created_at", "2021-02-12 17:20:13.120631"], ["updated_at", "2021-02-12 17:20:13.120631"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlight Create (0.7ms)[0m  [1m[32mINSERT INTO "flights" ("flight_number", "departure_airport", "arrival_airport", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_number", 999], ["departure_airport", "Chicago"], ["arrival_airport", "JFK"], ["price", 100.0], ["created_at", "2021-02-12 17:20:13.125535"], ["updated_at", "2021-02-12 17:20:13.125535"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Create (1.3ms)[0m  [1m[32mINSERT INTO "vacations" ("user_id", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 4], ["destination_id", 4], ["created_at", "2021-02-12 17:20:13.152383"], ["updated_at", "2021-02-12 17:20:13.152383"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Load (0.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.8ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDeparture Create (2.3ms)[0m  [1m[32mINSERT INTO "departures" ("vacation_id", "flight_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["vacation_id", 1], ["flight_id", 1], ["created_at", "2021-02-12 17:20:13.180480"], ["updated_at", "2021-02-12 17:20:13.180480"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Load (0.2ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArrival Create (1.8ms)[0m  [1m[32mINSERT INTO "arrivals" ("vacation_id", "flight_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["vacation_id", 1], ["flight_id", 2], ["created_at", "2021-02-12 17:20:13.222501"], ["updated_at", "2021-02-12 17:20:13.222501"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVacation Load (0.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" ORDER BY "vacations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFlight Load (4.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "arrivals" ON "flights"."id" = "arrivals"."flight_id" WHERE "arrivals"."vacation_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 11]]
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "flights" INNER JOIN "arrivals" ON "flights"."id" = "arrivals"."flight_id" WHERE "arrivals"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  [1m[36mDeparture Load (1.6ms)[0m  [1m[34mSELECT "departures".* FROM "departures" WHERE "departures"."vacation_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 11]]
+  [1m[36mDeparture Load (0.6ms)[0m  [1m[34mSELECT "departures".* FROM "departures" WHERE "departures"."vacation_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 11]]
+  [1m[36mArrival Load (0.5ms)[0m  [1m[34mSELECT "arrivals".* FROM "arrivals" WHERE "arrivals"."vacation_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 11]]
+  [1m[36mArrival Load (0.5ms)[0m  [1m[34mSELECT "arrivals".* FROM "arrivals" WHERE "arrivals"."vacation_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 11]]
+  [1m[36mArrival Load (0.4ms)[0m  [1m[34mSELECT "arrivals".* FROM "arrivals" WHERE "arrivals"."vacation_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 11]]
+  [1m[36mArrival Load (0.4ms)[0m  [1m[34mSELECT "arrivals".* FROM "arrivals" ORDER BY "arrivals"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArrival Load (0.4ms)[0m  [1m[34mSELECT "arrivals".* FROM "arrivals" WHERE "arrivals"."vacation_id" = $1 ORDER BY "arrivals"."id" ASC LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  [1m[36mArrival Load (1.5ms)[0m  [1m[34mSELECT "arrivals".* FROM "arrivals" WHERE "arrivals"."vacation_id" = $1 ORDER BY "arrivals"."id" ASC LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
