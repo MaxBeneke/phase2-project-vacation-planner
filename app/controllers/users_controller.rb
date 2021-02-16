@@ -1,5 +1,23 @@
 class UsersController < ApplicationController
 
+    skip_before_action :authorized, only: [:login, :handle_login, :new, :create]
+
+    def handle_login
+        @user = User.find_by(username: params[:username])
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
+        else
+            flash[:errors] = ["Incorrect username or password"]
+            redirect_to login_path
+        end
+    end
+
+    def logout
+        logout_user
+        redirect_to login_path
+    end
+
     def index
         @users = User.all
     end
