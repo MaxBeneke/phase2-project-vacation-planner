@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get "/users/:id/edit", to: "users#edit", as: "edit_user"
   patch "/users/:id", to: "users#update"
   delete "/users/:id", to: "users#destroy"
+  get "/users/:id/edit_password", to: "users#edit_password", as: "edit_password"
+  post "/users/:id/edit_password", to: "users#update_password"
 
   ### Login/Logout ###
   get "/login", to: "users#login", as: "login"

@@ -12,5 +12,11 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :password, presence: true
     validates :password, length: {minimum: 8}
+    validates :password, confirmation: {case_sensitive: true}
+
+    def password_match?(password1, password2)
+        return password1 == password2
+    end
+
 
 end

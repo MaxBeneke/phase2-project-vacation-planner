@@ -1,6 +1,7 @@
 class FlightsController < ApplicationController
 
     def index
+        redirect_to destinations_path
     end
 
     def show

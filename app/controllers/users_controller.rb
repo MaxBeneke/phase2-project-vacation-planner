@@ -2,9 +2,12 @@ class UsersController < ApplicationController
 
     skip_before_action :authorized, only: [:login, :handle_login, :new, :create]
 
+    def login
+    end
+
     def handle_login
         @user = User.find_by(username: params[:username])
-        if @user && @user.authenticate(params[:password])
+        if @user && @user.authenticate(params[:password]) 
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
@@ -19,7 +22,11 @@ class UsersController < ApplicationController
     end
 
     def index
-        @users = User.all
+        if session[:user_id] == nil
+            redirect_to login_path
+        else
+            user_path(current_user)
+        end
     end
 
     def show
@@ -36,6 +43,7 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         if @user.valid?
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
             flash[:errors] = @user.errors.full_messages
@@ -45,22 +53,37 @@ class UsersController < ApplicationController
     end
 
     def edit
-        if flash[:attributes]
-            @user = current_user(flash[:attributes])
+        @user = current_user
+    end
+
+    def edit_password
+        @user = current_user
+    end
+
+    def update_password
+        if @current_user && @current_user.authenticate(params[:current_password])
+            if @current_user.password_match?(params[:password], params[:password_confirmation])
+                @current_user.update(password: params[:password])
+                redirect_to user_path(@current_user)
+            else
+                flash[:errors] = ["Your new password must match"]
+                redirect_to edit_password_path
+            end
         else
-            @user = current_user
+            flash[:errors] = ["Your current password was entered incorrectly"]
+            redirect_to edit_password_path
         end
     end
 
-    def update
-        @user = current_user.update(user_params)
 
-        if @user.valid?
-            redirect_to user_path(@user)
+    def update
+        @current_user.update(user_params)
+        if @current_user.valid?
+            redirect_to user_path(@current_user)
         else
-            flash[:errors] = @user.errors.full_messages
-            flash[:attributes] = @user.attributes
-            redirect_to edit_user_path(@user)
+            flash[:errors] = @current_user.errors.full_messages
+            flash[:attributes] = @current_user.attributes
+            redirect_to edit_user_path(@current_user)
         end
     end
 
@@ -72,6 +95,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :username, :password, :email)
+        params.require(:user).permit(:name, :username, :password, :email, :password_confirmation)
     end
 end
