@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_171241) do
+ActiveRecord::Schema.define(version: 2021_02_17_154946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,17 +50,15 @@ ActiveRecord::Schema.define(version: 2021_02_12_171241) do
     t.text "highlights"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "abbr"
   end
 
   create_table "flights", force: :cascade do |t|
-    t.integer "flight_number"
-    t.string "departure_airport"
-    t.string "arrival_airport"
-    t.float "price"
-    t.datetime "departure_time"
-    t.datetime "arrival_time"
+    t.string "departure_time"
+    t.string "arrival_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "destination_airport"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,6 +84,12 @@ ActiveRecord::Schema.define(version: 2021_02_12_171241) do
     t.bigint "destination_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "year_start"
+    t.string "month_start"
+    t.string "day_start"
+    t.string "year_end"
+    t.string "month_end"
+    t.string "day_end"
     t.index ["destination_id"], name: "index_vacations_on_destination_id"
     t.index ["user_id"], name: "index_vacations_on_user_id"
   end

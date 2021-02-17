@@ -2,5 +2,11 @@
 <%= form_for @vacation do |f| %>
     <%= f.label :destination_id%>
     <%= f.collection_select :destination_id, @destinations, :id, :name %>
+    <%= f.label :year_start, "Year" %>
+    <%= f.collection_select :year_start, (Time.now.year..Time.now.year+1).to_a, :itself, :itself %>
+    <%= f.label :month_start, "Month" %>
+    <%= f.collection_select :month_start, Vacation.months, :itself, :itself %>
+     <%= f.label :day_start, "Day" %>
+    <%= f.collection_select :day_start, (1..31).to_a, :itself, :itself %>
     <%= f.submit %>
 <% end %>

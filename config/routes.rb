@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   get "/vacations/:id/edit", to: "vacations#edit", as: "edit_vacation"
   patch "/vacations/:id", to: "vacations#update"
   delete "/vacations/:id", to: "vacations#destroy", as: "delete_vacation"
+  get "/vacations/:id/add_flight", to: "vacations#add_flight", as: "add_flight"
+  post "/vacations/:id/add_flight", to: "vacations#create_flight"
   get "/vacations/:id/edit_flight", to: "vacations#edit_flight", as: "edit_flight"
   patch "/vacations/:id/edit_flight", to: "vacations#update_flight"
 
@@ -50,6 +52,7 @@ Rails.application.routes.draw do
   ### Flights ###
   get "/flights", to: "flights#index", as: "flights"
   get "/flights/:id", to: "flights#show", as: "flight"
+  
 
 
 end

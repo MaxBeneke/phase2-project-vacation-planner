@@ -1,0 +1,15 @@
+<h1> Plan your flight! </h1>
+
+<%= link_to "Check out available flights to #{@vacation.destination.name} for #{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}", @vacation.generate_kayak, :target => '_blank'%>
+
+<%= form_tag url: "/vacations/#{@vacation.id}/add_flight" do %>
+    <%= label_tag :return_or_depart, "Category" %>
+    <%= select_tag :return_or_depart, options_for_select(["Departing Flight", "Return Flight"]) %>
+    <%= label_tag :departure_time %>
+    <%= text_field_tag :departure_time %>
+    <%= label_tag :arrival_time %>
+    <%= text_field_tag :arrival_time %>
+    <%= label_tag :destination_airport %>
+    <%= text_field_tag :destination_airport %>
+    <%= submit_tag %>
+<% end %>

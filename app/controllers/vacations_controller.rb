@@ -44,8 +44,15 @@ class VacationsController < ApplicationController
         end
     end
 
-    def edit_flight
+    def add_flight
+        @flight = Flight.new
         find_vacation
+    end
+
+    def create_flight
+        @flight = Flight.create(arrival_time: params[:arrival_time], departure_time: params[:departure_time], destination_airport: params[:destination_airport] )
+        params[:return_or_depart] == "Departing Flight" ? Departure.create(flight_id: @flight.id, vacation_id: find_vacation.id) : Arrival.create(flight_id: @flight.id, vacation_id: find_vacation.id)
+        redirect_to vacation_path(find_vacation)
     end
 
     def destroy
@@ -56,7 +63,7 @@ class VacationsController < ApplicationController
     private
 
     def vacation_params
-        params.require(:vacation).permit(:user_id, :destination_id)
+        params.require(:vacation).permit(:user_id, :destination_id, :day_start, :day_end, :month_start, :month_end, :year_start, :year_end)
     end
 
     def find_vacation
