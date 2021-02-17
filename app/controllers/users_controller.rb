@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     end
 
     def update_password
-        if @current_user && @current_user.authenticate(params[:current_password])
+        if @current_user && @current_user.authenticate(params[:current_password]) && params[:password].length > 7
             if @current_user.password_match?(params[:password], params[:password_confirmation])
                 @current_user.update(password: params[:password])
                 redirect_to user_path(@current_user)
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
 
 
     def update
-        @current_user.update(user_params)
+        @current_user.update(name: params[:name], email: params[:email], username: params[:username])
         if @current_user.valid?
             redirect_to user_path(@current_user)
         else

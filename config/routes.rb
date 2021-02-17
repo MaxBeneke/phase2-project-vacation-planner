@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post "/users", to: "users#create"
   get "/users/:id", to: "users#show", as: "user"
   get "/users/:id/edit", to: "users#edit", as: "edit_user"
-  patch "/users/:id", to: "users#update"
+  post "/users/:id/edit", to: "users#update"
   delete "/users/:id", to: "users#destroy"
   get "/users/:id/edit_password", to: "users#edit_password", as: "edit_password"
   post "/users/:id/edit_password", to: "users#update_password"
@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   post "/vacations/:id/add_flight", to: "vacations#create_flight"
   get "/vacations/:id/edit_flight", to: "vacations#edit_flight", as: "edit_flight"
   patch "/vacations/:id/edit_flight", to: "vacations#update_flight"
+  get "/vacations/:id/find_activity", to: "vacations#find_activity", as: "find_activity"
+  post "/vacations/:id/find_activity", to: "vacations#add_activity"
 
   ### Activities ###
   get "/activities", to: "activities#index", as: "activities"
@@ -51,6 +53,8 @@ Rails.application.routes.draw do
 
   ### Flights ###
   get "/flights", to: "flights#index", as: "flights"
+  delete "/flights/:id/destroy_departure", to: "flights#destroy_departure"
+  delete "/flights/:id/destroy_arrival", to: "flights#destroy_arrival"
   get "/flights/:id", to: "flights#show", as: "flight"
   
 

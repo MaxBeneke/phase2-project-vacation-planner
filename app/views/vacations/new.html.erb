@@ -8,5 +8,11 @@
     <%= f.collection_select :month_start, Vacation.months, :itself, :itself %>
      <%= f.label :day_start, "Day" %>
     <%= f.collection_select :day_start, (1..31).to_a, :itself, :itself %>
+    <%= f.label :year_end, "Return Year" %>
+    <%= f.collection_select :year_end, (Time.now.year..Time.now.year+1).to_a, :itself, :itself %>
+    <%= f.label :month_end, "Return Month" %>
+    <%= f.collection_select :month_end, Vacation.months, :itself, :itself %>
+     <%= f.label :day_end, "Return Day" %>
+    <%= f.collection_select :day_end, (1..31).to_a, :itself, :itself %>
     <%= f.submit %>
 <% end %>

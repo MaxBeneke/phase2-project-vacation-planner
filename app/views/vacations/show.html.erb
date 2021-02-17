@@ -1,10 +1,18 @@
-<h1><%= "Your planned vacation to #{@vacation.destination.name}"%>
+<h1><%= "Your planned vacation to #{@vacation.destination.name}"%></h1>
+<h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
 <p><%= link_to "Add departure flight", add_flight_path %></p>
 <p><%= link_to "Add return flight", add_flight_path %></p>
 
-<%= @vacation.departure %>
-
-
+<% if @vacation.departure_flight %>
+    <% flash[:vacation_id] = @vacation.id %>
+    <p> Your flight to <%= @vacation.destination.name %> departs at <%= @vacation.departure_flight.departure_time %> and arrives at <%= @vacation.departure_flight.destination_airport%> at <%= @vacation.departure_flight.arrival_time %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", method: "delete" %> </p>
+<% end %>
+<% if @vacation.arrival_flight %>
+    <% flash[:vacation_id] = @vacation.id %>
+    <p> Your return flight from <%= @vacation.destination.name %> leaves at <%= @vacation.arrival_flight.departure_time %> and arrives at <%= @vacation.arrival_flight.arrival_time %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", method: "delete" %> </p>
+<% end %>
 
 <h2>General information about <%= @vacation.destination.name%></h2>
 
@@ -13,5 +21,16 @@
 <p><%= @vacation.destination.description %></p>
 
 <p>Highlights: <%= @vacation.destination.highlights%></p>
+
+<h3>Activities</h3>
+<% if @vacation.activities.size > 0 %>
+    <ul>
+        <% @vacation.activities.each do |activity| %>
+            <li> <%= activity.name %>, price: $<%= activity.price %> </li>
+        <% end %>
+    </ul>
+<% end %>
+<%= link_to "Add an Activity", find_activity_path %>
+
 
 <%= button_to "delete this vacation", delete_vacation_path(@vacation), method: "delete" %>

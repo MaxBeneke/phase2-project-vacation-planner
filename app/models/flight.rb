@@ -1,4 +1,4 @@
 class Flight < ApplicationRecord
-    has_many :arrivals, class_name: "Arrival", foreign_key: "arrival_id"
-    has_many :departures, class_name: "Departure"
+    has_many :arrivals, class_name: "Arrival", dependent: :destroy
+    has_many :departures, class_name: "Departure", dependent: :destroy
 end

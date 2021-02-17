@@ -1,7 +1,7 @@
 <h1> <%= "Hello #{@current_user.name}" %> </h1>
 
 <p>What would you like to do?</p>
-<p><%= link_to "plan a new vacation", new_vacation_path%></p>
+<p><%= link_to "Plan a new vacation", new_vacation_path%></p>
 <p><%= link_to "Edit your user information", edit_user_path(@current_user)%></p>
 <p><%= link_to "Edit your password", edit_password_path(@current_user)%></p>
 

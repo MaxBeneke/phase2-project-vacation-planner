@@ -55,6 +55,15 @@ class VacationsController < ApplicationController
         redirect_to vacation_path(find_vacation)
     end
 
+    def find_activity
+        find_vacation
+    end
+
+    def add_activity
+        VacationActivity.create(vacation: find_vacation, activity: find_vacation.search_for_activity(params[:name]))
+        redirect_to vacation_path(find_vacation)
+    end
+
     def destroy
         @vacation.destroy
         redirect_to user_path(current_user)
