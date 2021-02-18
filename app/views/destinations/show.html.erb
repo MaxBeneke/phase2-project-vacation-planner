@@ -4,7 +4,12 @@
 
 <div class="paragraph-container">
     <p class="paragraph"><%= @destination.description %></p>
-    <p class="paragraph">Highlights: <%= @destination.highlights%></p>
+<h3>Highlights </h3> 
+<ul>
+<% @destination.highlights_to_hash.each do |key, value|%>
+    <li><%= link_to key, value, :target => '_blank'%></li>
+<% end %>
+</ul >
 </div>
 
 <div class="list">

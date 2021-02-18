@@ -5,4 +5,9 @@ class Destination < ApplicationRecord
 
     validates :name, uniqueness: true
 
+
+    def highlights_to_hash
+        Hash[*highlights.split('|')]
+    end
+
 end
