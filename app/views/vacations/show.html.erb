@@ -18,9 +18,19 @@
 
 <p>Language: <%=@vacation.destination.language%></p>
 
-<p><%= @vacation.destination.description %></p>
+<div class="paragraph-container">
+<p class="paragraph"><%= @vacation.destination.description %></p>
+</div>
 
-<p>Highlights: <%= @vacation.destination.highlights%></p>
+<div class="list">
+    <h5>Highlights</h5>
+        <ul>
+        <% @vacation.destination.highlights_to_hash.each do |key, value|%>
+            <li><%= link_to key, value, :target => '_blank'%></li>
+        <% end %>
+        </ul>
+</div>
+
 
 <h3>Activities</h3>
 <% if @vacation.activities.size > 0 %>
