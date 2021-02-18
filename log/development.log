@@ -15346,3 +15346,1010 @@ Processing by UsersController#edit_password as HTML
 Completed 200 OK in 54ms (Views: 39.1ms | ActiveRecord: 1.0ms | Allocations: 6486)
 
 
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (47.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "VacationPlanner_development"[0m
+  [1m[35m (44.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "VacationPlanner_test"[0m
+  [1m[35m (175.1ms)[0m  [1m[35mCREATE DATABASE "VacationPlanner_development" ENCODING = 'unicode'[0m
+  [1m[35m (102.9ms)[0m  [1m[35mCREATE DATABASE "VacationPlanner_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "activities" CASCADE[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "name" character varying, "destination_id" bigint NOT NULL, "price" float, "time_duration" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_activities_on_destination_id" ON "activities" ("destination_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "arrivals" CASCADE[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "arrivals" ("id" bigserial primary key, "vacation_id" bigint NOT NULL, "flight_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_arrivals_on_flight_id" ON "arrivals" ("flight_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_arrivals_on_vacation_id" ON "arrivals" ("vacation_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departures" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "departures" ("id" bigserial primary key, "vacation_id" bigint NOT NULL, "flight_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_departures_on_flight_id" ON "departures" ("flight_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_departures_on_vacation_id" ON "departures" ("vacation_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "destinations" CASCADE[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" bigserial primary key, "name" character varying, "language" character varying, "description" text, "highlights" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "abbr" character varying)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "flights" CASCADE[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "flights" ("id" bigserial primary key, "departure_time" character varying, "arrival_time" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "destination_airport" character varying)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "vacation_activities" CASCADE[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "vacation_activities" ("id" bigserial primary key, "activity_id" bigint NOT NULL, "vacation_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_activity_id" ON "vacation_activities" ("activity_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_vacation_id" ON "vacation_activities" ("vacation_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "vacations" CASCADE[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "vacations" ("id" bigserial primary key, "user_id" bigint NOT NULL, "destination_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "year_start" character varying, "month_start" character varying, "day_start" character varying, "year_end" character varying, "month_end" character varying, "day_end" character varying)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_destination_id" ON "vacations" ("destination_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_user_id" ON "vacations" ("user_id")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "activities" ADD CONSTRAINT "fk_rails_80bc852622"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "arrivals" ADD CONSTRAINT "fk_rails_f3cce2dcc4"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "arrivals" ADD CONSTRAINT "fk_rails_aec951f8c4"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "departures" ADD CONSTRAINT "fk_rails_1feda8b50c"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "departures" ADD CONSTRAINT "fk_rails_4b761411ba"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "vacation_activities" ADD CONSTRAINT "fk_rails_49daa98d67"
+FOREIGN KEY ("activity_id")
+  REFERENCES "activities" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "vacation_activities" ADD CONSTRAINT "fk_rails_370e1ca29e"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "vacations" ADD CONSTRAINT "fk_rails_8c85bb500d"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "vacations" ADD CONSTRAINT "fk_rails_10fe255323"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210217154946)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210212160106),
+(20210212160312),
+(20210212160425),
+(20210212160856),
+(20210212161032),
+(20210212161214),
+(20210212171227),
+(20210212171241),
+(20210217143440),
+(20210217144111),
+(20210217154637);
+
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-18 02:04:35.229093"], ["updated_at", "2021-02-18 02:04:35.229093"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "831f1cb81909fae7e4af842a2867549b3bec7a85"], ["created_at", "2021-02-18 02:04:35.236560"], ["updated_at", "2021-02-18 02:04:35.236560"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "activities" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "name" character varying, "destination_id" bigint NOT NULL, "price" float, "time_duration" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_activities_on_destination_id" ON "activities" ("destination_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "arrivals" CASCADE[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "arrivals" ("id" bigserial primary key, "vacation_id" bigint NOT NULL, "flight_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_arrivals_on_flight_id" ON "arrivals" ("flight_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_arrivals_on_vacation_id" ON "arrivals" ("vacation_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "departures" CASCADE[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "departures" ("id" bigserial primary key, "vacation_id" bigint NOT NULL, "flight_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_departures_on_flight_id" ON "departures" ("flight_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_departures_on_vacation_id" ON "departures" ("vacation_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "destinations" CASCADE[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" bigserial primary key, "name" character varying, "language" character varying, "description" text, "highlights" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "abbr" character varying)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "flights" CASCADE[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "flights" ("id" bigserial primary key, "departure_time" character varying, "arrival_time" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "destination_airport" character varying)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "vacation_activities" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "vacation_activities" ("id" bigserial primary key, "activity_id" bigint NOT NULL, "vacation_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_activity_id" ON "vacation_activities" ("activity_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_vacation_activities_on_vacation_id" ON "vacation_activities" ("vacation_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "vacations" CASCADE[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "vacations" ("id" bigserial primary key, "user_id" bigint NOT NULL, "destination_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "year_start" character varying, "month_start" character varying, "day_start" character varying, "year_end" character varying, "month_end" character varying, "day_end" character varying)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_destination_id" ON "vacations" ("destination_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_user_id" ON "vacations" ("user_id")[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "activities" ADD CONSTRAINT "fk_rails_80bc852622"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "arrivals" ADD CONSTRAINT "fk_rails_f3cce2dcc4"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "arrivals" ADD CONSTRAINT "fk_rails_aec951f8c4"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "departures" ADD CONSTRAINT "fk_rails_1feda8b50c"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "departures" ADD CONSTRAINT "fk_rails_4b761411ba"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "vacation_activities" ADD CONSTRAINT "fk_rails_49daa98d67"
+FOREIGN KEY ("activity_id")
+  REFERENCES "activities" ("id")
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "vacation_activities" ADD CONSTRAINT "fk_rails_370e1ca29e"
+FOREIGN KEY ("vacation_id")
+  REFERENCES "vacations" ("id")
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "vacations" ADD CONSTRAINT "fk_rails_8c85bb500d"
+FOREIGN KEY ("destination_id")
+  REFERENCES "destinations" ("id")
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "vacations" ADD CONSTRAINT "fk_rails_10fe255323"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210217154946)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210212160106),
+(20210212160312),
+(20210212160425),
+(20210212160856),
+(20210212161032),
+(20210212161214),
+(20210212171227),
+(20210212171241),
+(20210217143440),
+(20210217144111),
+(20210217154637);
+
+[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-18 02:04:35.387583"], ["updated_at", "2021-02-18 02:04:35.387583"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-02-18 02:04:35.393341"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "831f1cb81909fae7e4af842a2867549b3bec7a85"], ["created_at", "2021-02-18 02:04:35.398153"], ["updated_at", "2021-02-18 02:04:35.398153"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Sam123"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sam@gmail"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sam"], ["username", "Sam123"], ["password_digest", "$2a$12$cjWX64WKi8CUsVdS/6EkC.cX0da1T7MIz3543KG8gB7h/QsGoCRym"], ["email", "sam@gmail"], ["created_at", "2021-02-18 02:04:35.728921"], ["updated_at", "2021-02-18 02:04:35.728921"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Chicago"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Chicago"], ["language", "Chicagoan"], ["description", "Windy"], ["highlights", "The bean"], ["created_at", "2021-02-18 02:04:35.748720"], ["updated_at", "2021-02-18 02:04:35.748720"], ["abbr", "CHI"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Paris"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Paris"], ["language", "French"], ["description", "Rude"], ["highlights", "Big tower"], ["created_at", "2021-02-18 02:04:35.753576"], ["updated_at", "2021-02-18 02:04:35.753576"], ["abbr", "PAR"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Madrid"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Madrid"], ["language", "Spanish"], ["description", "Spaniards"], ["highlights", "Tapas"], ["created_at", "2021-02-18 02:04:35.758193"], ["updated_at", "2021-02-18 02:04:35.758193"], ["abbr", "MAD"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Tokyo"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Tokyo"], ["language", "Japanese"], ["description", "Neon"], ["highlights", "Godzilla"], ["created_at", "2021-02-18 02:04:35.762669"], ["updated_at", "2021-02-18 02:04:35.762669"], ["abbr", "TYO"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Rome"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Rome"], ["language", "Italian"], ["description", "Jesus"], ["highlights", "Pope"], ["created_at", "2021-02-18 02:04:35.767192"], ["updated_at", "2021-02-18 02:04:35.767192"], ["abbr", "ROM"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Cairo"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Cairo"], ["language", "Egyptian Arabic"], ["description", "Sandy"], ["highlights", "The Triangle"], ["created_at", "2021-02-18 02:04:35.771691"], ["updated_at", "2021-02-18 02:04:35.771691"], ["abbr", "CAI"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Rio de Janeiro"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Rio de Janeiro"], ["language", "Portuguese"], ["description", "Colorful"], ["highlights", "Jesus again"], ["created_at", "2021-02-18 02:04:35.776067"], ["updated_at", "2021-02-18 02:04:35.776067"], ["abbr", "RIO"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Jamaica"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Jamaica"], ["language", "English"], ["description", "Smoky"], ["highlights", "Beaches seem tight"], ["created_at", "2021-02-18 02:04:35.780460"], ["updated_at", "2021-02-18 02:04:35.780460"], ["abbr", "KIN"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (13.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Los Angeles"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Los Angeles"], ["language", "English"], ["description", "Douchey"], ["highlights", "Traffic"], ["created_at", "2021-02-18 02:04:35.797988"], ["updated_at", "2021-02-18 02:04:35.797988"], ["abbr", "LAX"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Berlin"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Berlin"], ["language", "German"], ["description", "Nice..now"], ["highlights", "Piece of wall"], ["created_at", "2021-02-18 02:04:35.802585"], ["updated_at", "2021-02-18 02:04:35.802585"], ["abbr", "BER"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "destinations" WHERE "destinations"."name" = $1 LIMIT $2[0m  [["name", "Sydney"], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.4ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "language", "description", "highlights", "created_at", "updated_at", "abbr") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Sydney"], ["language", "English"], ["description", "Outback"], ["highlights", "Opera"], ["created_at", "2021-02-18 02:04:35.806707"], ["updated_at", "2021-02-18 02:04:35.806707"], ["abbr", "SYD"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVacation Load (0.3ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (1.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 1], ["price", 34.99], ["created_at", "2021-02-18 02:04:35.889185"], ["updated_at", "2021-02-18 02:04:35.889185"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 2], ["price", 33.99], ["created_at", "2021-02-18 02:04:35.895990"], ["updated_at", "2021-02-18 02:04:35.895990"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 3], ["price", 37.5], ["created_at", "2021-02-18 02:04:35.900715"], ["updated_at", "2021-02-18 02:04:35.900715"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.5ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 4], ["price", 35.0], ["created_at", "2021-02-18 02:04:35.906292"], ["updated_at", "2021-02-18 02:04:35.906292"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 5], ["price", 33.99], ["created_at", "2021-02-18 02:04:35.911155"], ["updated_at", "2021-02-18 02:04:35.911155"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.5ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 6], ["price", 34.99], ["created_at", "2021-02-18 02:04:35.915979"], ["updated_at", "2021-02-18 02:04:35.915979"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 7], ["price", 36.5], ["created_at", "2021-02-18 02:04:35.920555"], ["updated_at", "2021-02-18 02:04:35.920555"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 8], ["price", 36.99], ["created_at", "2021-02-18 02:04:35.925142"], ["updated_at", "2021-02-18 02:04:35.925142"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 9], ["price", 31.5], ["created_at", "2021-02-18 02:04:35.929511"], ["updated_at", "2021-02-18 02:04:35.929511"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 10], ["price", 32.99], ["created_at", "2021-02-18 02:04:35.945889"], ["updated_at", "2021-02-18 02:04:35.945889"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bus Tour"], ["destination_id", 11], ["price", 33.99], ["created_at", "2021-02-18 02:04:35.951164"], ["updated_at", "2021-02-18 02:04:35.951164"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "River Cruise"], ["destination_id", 1], ["price", 39.99], ["created_at", "2021-02-18 02:04:35.956297"], ["updated_at", "2021-02-18 02:04:35.956297"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Zoo Trip"], ["destination_id", 1], ["price", 15.5], ["created_at", "2021-02-18 02:04:35.961248"], ["updated_at", "2021-02-18 02:04:35.961248"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.5ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Aquarium"], ["destination_id", 1], ["price", 15.99], ["created_at", "2021-02-18 02:04:35.965779"], ["updated_at", "2021-02-18 02:04:35.965779"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Pizza Tour"], ["destination_id", 1], ["price", 45.0], ["created_at", "2021-02-18 02:04:35.970710"], ["updated_at", "2021-02-18 02:04:35.970710"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Eiffel Tower"], ["destination_id", 2], ["price", 24.99], ["created_at", "2021-02-18 02:04:35.975074"], ["updated_at", "2021-02-18 02:04:35.975074"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Louvre Museum"], ["destination_id", 2], ["price", 15.5], ["created_at", "2021-02-18 02:04:35.979434"], ["updated_at", "2021-02-18 02:04:35.979434"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.5ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Catacombs"], ["destination_id", 2], ["price", 15.0], ["created_at", "2021-02-18 02:04:35.983809"], ["updated_at", "2021-02-18 02:04:35.983809"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Palace of Versailles Tour"], ["destination_id", 2], ["price", 30.0], ["created_at", "2021-02-18 02:04:35.988993"], ["updated_at", "2021-02-18 02:04:35.988993"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Real Madrid Football Match"], ["destination_id", 3], ["price", 49.99], ["created_at", "2021-02-18 02:04:35.993443"], ["updated_at", "2021-02-18 02:04:35.993443"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "National Archaelogical Museum"], ["destination_id", 3], ["price", 15.5], ["created_at", "2021-02-18 02:04:35.997638"], ["updated_at", "2021-02-18 02:04:35.997638"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Prado Museum"], ["destination_id", 3], ["price", 20.0], ["created_at", "2021-02-18 02:04:36.001898"], ["updated_at", "2021-02-18 02:04:36.001898"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Ryogoku Kokugikan Sumo Match"], ["destination_id", 4], ["price", 22.99], ["created_at", "2021-02-18 02:04:36.006680"], ["updated_at", "2021-02-18 02:04:36.006680"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Day Trip to Mt. Fuji"], ["destination_id", 4], ["price", 99.99], ["created_at", "2021-02-18 02:04:36.011083"], ["updated_at", "2021-02-18 02:04:36.011083"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Disneyland Tokyo"], ["destination_id", 4], ["price", 79.99], ["created_at", "2021-02-18 02:04:36.016021"], ["updated_at", "2021-02-18 02:04:36.016021"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Origami Museum"], ["destination_id", 4], ["price", 0.0], ["created_at", "2021-02-18 02:04:36.021456"], ["updated_at", "2021-02-18 02:04:36.021456"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Colosseum Tour"], ["destination_id", 5], ["price", 60.99], ["created_at", "2021-02-18 02:04:36.026384"], ["updated_at", "2021-02-18 02:04:36.026384"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Gladiator School"], ["destination_id", 5], ["price", 110.5], ["created_at", "2021-02-18 02:04:36.030692"], ["updated_at", "2021-02-18 02:04:36.030692"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Horse Riding Trail"], ["destination_id", 5], ["price", 33.99], ["created_at", "2021-02-18 02:04:36.035107"], ["updated_at", "2021-02-18 02:04:36.035107"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.5ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sistine Chapel"], ["destination_id", 5], ["price", 28.0], ["created_at", "2021-02-18 02:04:36.050594"], ["updated_at", "2021-02-18 02:04:36.050594"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Pyramids Tour"], ["destination_id", 6], ["price", 60.99], ["created_at", "2021-02-18 02:04:36.056218"], ["updated_at", "2021-02-18 02:04:36.056218"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Nile Dinner Cruise"], ["destination_id", 6], ["price", 48.0], ["created_at", "2021-02-18 02:04:36.061137"], ["updated_at", "2021-02-18 02:04:36.061137"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Museum of Antiquities"], ["destination_id", 6], ["price", 30.0], ["created_at", "2021-02-18 02:04:36.065874"], ["updated_at", "2021-02-18 02:04:36.065874"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Hang Gliding"], ["destination_id", 7], ["price", 60.99], ["created_at", "2021-02-18 02:04:36.070560"], ["updated_at", "2021-02-18 02:04:36.070560"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.5ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Mountain Hike"], ["destination_id", 7], ["price", 11.99], ["created_at", "2021-02-18 02:04:36.077368"], ["updated_at", "2021-02-18 02:04:36.077368"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sailing"], ["destination_id", 7], ["price", 33.99], ["created_at", "2021-02-18 02:04:36.082657"], ["updated_at", "2021-02-18 02:04:36.082657"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brazilian Cooking Class"], ["destination_id", 7], ["price", 33.0], ["created_at", "2021-02-18 02:04:36.087128"], ["updated_at", "2021-02-18 02:04:36.087128"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Dunn's River Falls Hike"], ["destination_id", 8], ["price", 9.99], ["created_at", "2021-02-18 02:04:36.091543"], ["updated_at", "2021-02-18 02:04:36.091543"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "White Witch Golf Course"], ["destination_id", 8], ["price", 45.5], ["created_at", "2021-02-18 02:04:36.095656"], ["updated_at", "2021-02-18 02:04:36.095656"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bob Marley Museum"], ["destination_id", 8], ["price", 4.2], ["created_at", "2021-02-18 02:04:36.099838"], ["updated_at", "2021-02-18 02:04:36.099838"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jamaica Culinary Tour"], ["destination_id", 8], ["price", 49.99], ["created_at", "2021-02-18 02:04:36.103939"], ["updated_at", "2021-02-18 02:04:36.103939"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Hollywood Walk of Fame Tour"], ["destination_id", 9], ["price", 23.99], ["created_at", "2021-02-18 02:04:36.108151"], ["updated_at", "2021-02-18 02:04:36.108151"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Palm Springs Day Trip"], ["destination_id", 9], ["price", 110.5], ["created_at", "2021-02-18 02:04:36.112524"], ["updated_at", "2021-02-18 02:04:36.112524"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "LACMA"], ["destination_id", 9], ["price", 13.99], ["created_at", "2021-02-18 02:04:36.116774"], ["updated_at", "2021-02-18 02:04:36.116774"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Hang Gliding"], ["destination_id", 9], ["price", 28.0], ["created_at", "2021-02-18 02:04:36.121050"], ["updated_at", "2021-02-18 02:04:36.121050"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Museum Island"], ["destination_id", 10], ["price", 60.99], ["created_at", "2021-02-18 02:04:36.125300"], ["updated_at", "2021-02-18 02:04:36.125300"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Berlin Wall Memorial"], ["destination_id", 10], ["price", 0.0], ["created_at", "2021-02-18 02:04:36.130285"], ["updated_at", "2021-02-18 02:04:36.130285"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Tiergarten"], ["destination_id", 10], ["price", 15.0], ["created_at", "2021-02-18 02:04:36.136560"], ["updated_at", "2021-02-18 02:04:36.136560"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Skydiving"], ["destination_id", 11], ["price", 55.55], ["created_at", "2021-02-18 02:04:36.142076"], ["updated_at", "2021-02-18 02:04:36.142076"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Scuba Diving"], ["destination_id", 11], ["price", 99.99], ["created_at", "2021-02-18 02:04:36.147486"], ["updated_at", "2021-02-18 02:04:36.147486"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Opera"], ["destination_id", 11], ["price", 70.0], ["created_at", "2021-02-18 02:04:36.163026"], ["updated_at", "2021-02-18 02:04:36.163026"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("name", "destination_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Outback Safari"], ["destination_id", 11], ["price", 210.0], ["created_at", "2021-02-18 02:04:36.168118"], ["updated_at", "2021-02-18 02:04:36.168118"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/restaurant_pizzas/new" for ::1 at 2021-02-17 21:04:43 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/restaurant_pizzas/new"):
+  
+Started GET "/login" for ::1 at 2021-02-17 21:05:03 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.6ms | Allocations: 221)
+  Rendered users/login.html.erb within layouts/application (Duration: 2.4ms | Allocations: 966)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 9376)
+Completed 200 OK in 56ms (Views: 42.9ms | ActiveRecord: 0.0ms | Allocations: 11585)
+
+
+Started GET "/login" for ::1 at 2021-02-17 21:05:03 -0500
+Processing by UsersController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.2ms | Allocations: 54)
+  Rendered users/login.html.erb within layouts/application (Duration: 1.0ms | Allocations: 384)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 3758)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 4132)
+
+
+Started GET "/users/new" for ::1 at 2021-02-17 21:05:08 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered users/new.html.erb within layouts/application (Duration: 12.4ms | Allocations: 3447)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 6823)
+Completed 200 OK in 57ms (Views: 24.1ms | ActiveRecord: 10.6ms | Allocations: 16493)
+
+
+Started POST "/users" for ::1 at 2021-02-17 21:05:29 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"max", "username"=>"max", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>"max@gmail.com"}, "commit"=>"Create Account"}
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "max"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "max@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "max"], ["username", "max"], ["password_digest", "$2a$12$cUmb/BgSCiOt6A4nKbHp4es64p1uJChXTEDw51SWmWD8fTwuNP44i"], ["email", "max@gmail.com"], ["created_at", "2021-02-18 02:05:29.389296"], ["updated_at", "2021-02-18 02:05:29.389296"]]
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:44:in `create'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "max"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "max@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `create'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 305ms (ActiveRecord: 8.5ms | Allocations: 9438)
+
+
+Started GET "/users/2" for ::1 at 2021-02-17 21:05:29 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 85.7ms | Allocations: 9256)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 94.0ms | Allocations: 12533)
+Completed 200 OK in 100ms (Views: 88.4ms | ActiveRecord: 7.8ms | Allocations: 14096)
+
+
+Started GET "/vacations/new" for ::1 at 2021-02-17 21:05:34 -0500
+Processing by VacationsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/new.html.erb within layouts/application
+  [1m[36mDestination Load (1.8ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/views/vacations/new.html.erb:4
+  Rendered vacations/new.html.erb within layouts/application (Duration: 23.7ms | Allocations: 8955)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.2ms | Allocations: 12328)
+Completed 200 OK in 63ms (Views: 25.2ms | ActiveRecord: 16.2ms | Allocations: 22061)
+
+
+Started POST "/vacations" for ::1 at 2021-02-17 21:05:36 -0500
+Processing by VacationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "vacation"=>{"destination_id"=>"1", "year_start"=>"2021", "month_start"=>"Jan", "day_start"=>"1", "year_end"=>"2021", "month_end"=>"Jan", "day_end"=>"1"}, "commit"=>"Create Vacation"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:23:in `create'
+  [1m[36mDestination Load (1.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/vacations_controller.rb:23:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:24:in `create'
+  [1m[36mVacation Create (1.9ms)[0m  [1m[32mINSERT INTO "vacations" ("user_id", "destination_id", "created_at", "updated_at", "year_start", "month_start", "day_start", "year_end", "month_end", "day_end") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["user_id", 2], ["destination_id", 1], ["created_at", "2021-02-18 02:05:36.216355"], ["updated_at", "2021-02-18 02:05:36.216355"], ["year_start", "2021"], ["month_start", "Jan"], ["day_start", "1"], ["year_end", "2021"], ["month_end", "Jan"], ["day_end", "1"]]
+  ↳ app/controllers/vacations_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/vacations_controller.rb:24:in `create'
+Redirected to http://localhost:3000/vacations/1
+Completed 302 Found in 22ms (ActiveRecord: 8.4ms | Allocations: 9562)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-17 21:05:36 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.8ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.9ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:6
+  [1m[36mFlight Load (1.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "arrivals" ON "flights"."id" = "arrivals"."flight_id" WHERE "arrivals"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:11
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:26
+  Rendered vacations/show.html.erb within layouts/application (Duration: 57.5ms | Allocations: 19201)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 64.3ms | Allocations: 22478)
+Completed 200 OK in 89ms (Views: 36.6ms | ActiveRecord: 29.8ms | Allocations: 25188)
+
+
+Started GET "/vacations/1/find_activity" for ::1 at 2021-02-17 21:05:44 -0500
+Processing by VacationsController#find_activity as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/find_activity.html.erb within layouts/application
+  [1m[36mDestination Load (2.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5
+  [1m[36mActivity Load (1.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5:in `collect'
+  Rendered vacations/find_activity.html.erb within layouts/application (Duration: 17.0ms | Allocations: 7344)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 10625)
+Completed 200 OK in 38ms (Views: 21.9ms | ActiveRecord: 6.7ms | Allocations: 13584)
+
+
+Started GET "/vacations/1/find_activity" for ::1 at 2021-02-17 21:22:01 -0500
+Processing by VacationsController#find_activity as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.5ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/find_activity.html.erb within layouts/application
+  [1m[36mDestination Load (1.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5
+  [1m[36mActivity Load (1.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5:in `collect'
+  Rendered vacations/find_activity.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2067)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 5439)
+Completed 200 OK in 96ms (Views: 18.6ms | ActiveRecord: 27.2ms | Allocations: 11549)
+
+
+Started POST "/vacations/1/find_activity" for ::1 at 2021-02-17 21:22:04 -0500
+Processing by VacationsController#add_activity as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"River Cruise", "commit"=>"Add Activity", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mDestination Load (0.8ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/vacation.rb:32:in `search_for_activity'
+  [1m[36mActivity Load (0.9ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/models/vacation.rb:32:in `search_for_activity'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mVacationActivity Create (3.7ms)[0m  [1m[32mINSERT INTO "vacation_activities" ("activity_id", "vacation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["activity_id", 12], ["vacation_id", 1], ["created_at", "2021-02-18 02:22:04.283830"], ["updated_at", "2021-02-18 02:22:04.283830"]]
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mVacation Load (0.9ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+Redirected to http://localhost:3000/vacations/1
+Completed 302 Found in 29ms (ActiveRecord: 15.8ms | Allocations: 9698)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-17 21:22:04 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:6
+  [1m[36mFlight Load (1.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "arrivals" ON "flights"."id" = "arrivals"."flight_id" WHERE "arrivals"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:11
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:26
+  [1m[36mActivity Load (1.4ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:28
+  Rendered vacations/show.html.erb within layouts/application (Duration: 15.6ms | Allocations: 5222)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 8595)
+Completed 200 OK in 29ms (Views: 15.8ms | ActiveRecord: 9.0ms | Allocations: 11071)
+
+
+Started GET "/vacations/1/find_activity" for ::1 at 2021-02-17 21:22:06 -0500
+Processing by VacationsController#find_activity as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/find_activity.html.erb within layouts/application
+  [1m[36mDestination Load (1.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5
+  [1m[36mActivity Load (1.7ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5:in `collect'
+  Rendered vacations/find_activity.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2022)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 5396)
+Completed 200 OK in 26ms (Views: 16.0ms | ActiveRecord: 5.3ms | Allocations: 7676)
+
+
+Started POST "/vacations/1/find_activity" for ::1 at 2021-02-17 21:22:09 -0500
+Processing by VacationsController#add_activity as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"River Cruise", "commit"=>"Add Activity", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.9ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mDestination Load (0.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/vacation.rb:32:in `search_for_activity'
+  [1m[36mActivity Load (0.9ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/models/vacation.rb:32:in `search_for_activity'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mVacationActivity Create (1.1ms)[0m  [1m[32mINSERT INTO "vacation_activities" ("activity_id", "vacation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["activity_id", 12], ["vacation_id", 1], ["created_at", "2021-02-18 02:22:09.428314"], ["updated_at", "2021-02-18 02:22:09.428314"]]
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mVacation Load (0.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+Redirected to http://localhost:3000/vacations/1
+Completed 302 Found in 18ms (ActiveRecord: 6.6ms | Allocations: 6591)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-17 21:22:09 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:6
+  [1m[36mFlight Load (1.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "arrivals" ON "flights"."id" = "arrivals"."flight_id" WHERE "arrivals"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:11
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:26
+  [1m[36mActivity Load (1.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:28
+  Rendered vacations/show.html.erb within layouts/application (Duration: 14.9ms | Allocations: 4884)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 8257)
+Completed 200 OK in 27ms (Views: 15.7ms | ActiveRecord: 7.8ms | Allocations: 10732)
+
+
+Started GET "/vacations/1/find_activity" for ::1 at 2021-02-17 21:22:11 -0500
+Processing by VacationsController#find_activity as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.9ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/find_activity.html.erb within layouts/application
+  [1m[36mDestination Load (1.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5
+  [1m[36mActivity Load (1.1ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5:in `collect'
+  Rendered vacations/find_activity.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2019)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 5392)
+Completed 200 OK in 22ms (Views: 11.8ms | ActiveRecord: 4.9ms | Allocations: 7566)
+
+
+Started POST "/vacations/1/find_activity" for ::1 at 2021-02-17 21:22:13 -0500
+Processing by VacationsController#add_activity as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"Pizza Tour", "commit"=>"Add Activity", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mDestination Load (1.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/vacation.rb:32:in `search_for_activity'
+  [1m[36mActivity Load (1.1ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/models/vacation.rb:32:in `search_for_activity'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mVacationActivity Create (1.3ms)[0m  [1m[32mINSERT INTO "vacation_activities" ("activity_id", "vacation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["activity_id", 15], ["vacation_id", 1], ["created_at", "2021-02-18 02:22:13.347408"], ["updated_at", "2021-02-18 02:22:13.347408"]]
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mVacation Load (0.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+Redirected to http://localhost:3000/vacations/1
+Completed 302 Found in 20ms (ActiveRecord: 8.1ms | Allocations: 6615)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-17 21:22:13 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (0.8ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:6
+  [1m[36mFlight Load (1.0ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "arrivals" ON "flights"."id" = "arrivals"."flight_id" WHERE "arrivals"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:11
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:26
+  [1m[36mActivity Load (1.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:28
+  Rendered vacations/show.html.erb within layouts/application (Duration: 13.6ms | Allocations: 4898)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 8272)
+Completed 200 OK in 29ms (Views: 16.0ms | ActiveRecord: 7.2ms | Allocations: 10747)
+
+
+Started GET "/vacations/1/find_activity" for ::1 at 2021-02-17 21:23:42 -0500
+Processing by VacationsController#find_activity as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.2ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/find_activity.html.erb within layouts/application
+  [1m[36mDestination Load (1.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5
+  [1m[36mActivity Load (2.1ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5:in `collect'
+  Rendered vacations/find_activity.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2119)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 5491)
+Completed 200 OK in 44ms (Views: 32.8ms | ActiveRecord: 5.8ms | Allocations: 8228)
+
+
+Started POST "/vacations/1/find_activity" for ::1 at 2021-02-17 21:23:45 -0500
+Processing by VacationsController#add_activity as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"Pizza Tour", "commit"=>"Add Activity", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mDestination Load (0.8ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/vacation.rb:32:in `search_for_activity'
+  [1m[36mActivity Load (0.7ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/models/vacation.rb:32:in `search_for_activity'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mVacationActivity Create (1.1ms)[0m  [1m[32mINSERT INTO "vacation_activities" ("activity_id", "vacation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["activity_id", 15], ["vacation_id", 1], ["created_at", "2021-02-18 02:23:45.598773"], ["updated_at", "2021-02-18 02:23:45.598773"]]
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mVacation Load (0.9ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+Redirected to http://localhost:3000/vacations/1
+Completed 302 Found in 32ms (ActiveRecord: 6.4ms | Allocations: 6591)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-17 21:23:45 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.8ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:6
+  [1m[36mFlight Load (1.0ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "arrivals" ON "flights"."id" = "arrivals"."flight_id" WHERE "arrivals"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:11
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:26
+  [1m[36mActivity Load (1.1ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:28
+  Rendered vacations/show.html.erb within layouts/application (Duration: 14.0ms | Allocations: 4913)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 8286)
+Completed 200 OK in 28ms (Views: 16.6ms | ActiveRecord: 7.2ms | Allocations: 10762)
+
+
+Started GET "/vacations/1/find_activity" for ::1 at 2021-02-17 21:23:48 -0500
+Processing by VacationsController#find_activity as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/find_activity.html.erb within layouts/application
+  [1m[36mDestination Load (1.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5
+  [1m[36mActivity Load (1.4ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:5:in `collect'
+  Rendered vacations/find_activity.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2134)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 5513)
+Completed 200 OK in 25ms (Views: 14.9ms | ActiveRecord: 5.3ms | Allocations: 8219)
+
+
+Started POST "/vacations/1/find_activity" for ::1 at 2021-02-17 21:23:49 -0500
+Processing by VacationsController#add_activity as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"Bus Tour", "commit"=>"Add Activity", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mDestination Load (0.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/vacation.rb:32:in `search_for_activity'
+  [1m[36mActivity Load (0.7ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/models/vacation.rb:32:in `search_for_activity'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mVacationActivity Create (1.7ms)[0m  [1m[32mINSERT INTO "vacation_activities" ("activity_id", "vacation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["activity_id", 1], ["vacation_id", 1], ["created_at", "2021-02-18 02:23:49.666083"], ["updated_at", "2021-02-18 02:23:49.666083"]]
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/vacations_controller.rb:63:in `add_activity'
+  [1m[36mVacation Load (0.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+Redirected to http://localhost:3000/vacations/1
+Completed 302 Found in 23ms (ActiveRecord: 7.3ms | Allocations: 6588)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-17 21:23:49 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:79:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.0ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:6
+  [1m[36mFlight Load (1.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "arrivals" ON "flights"."id" = "arrivals"."flight_id" WHERE "arrivals"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:11
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:26
+  [1m[36mActivity Load (1.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:28
+  Rendered vacations/show.html.erb within layouts/application (Duration: 15.8ms | Allocations: 4927)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 8299)
+Completed 200 OK in 30ms (Views: 19.1ms | ActiveRecord: 7.1ms | Allocations: 10774)
+
+
