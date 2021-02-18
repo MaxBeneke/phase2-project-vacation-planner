@@ -1,9 +1,10 @@
 <h1> <%= "Hello #{@current_user.name}" %> </h1>
 
-<p>What would you like to do?</p>
-<p><%= link_to "Plan a new vacation", new_vacation_path%></p>
-<p><%= link_to "Edit your user information", edit_user_path(@current_user)%></p>
-<p><%= link_to "Edit your password", edit_password_path(@current_user)%></p>
+<div class="show-options">
+    <p class="option-item">What would you like to do?</p>
+    <p class="option-item"><%= link_to "Plan a new vacation", new_vacation_path%></p>
+    <p class="option-item"> <%= link_to "Browse all Destinations", destinations_path %>
+</div>
 
 <%if current_user.vacations.size > 0%>
     <h2>Your Vacations</h2>
@@ -11,9 +12,10 @@
 
 <ol>
 <%@current_user.vacations.each do |vaca|%>
-    <li> <%= link_to vaca.destination.name, vacation_path(vaca)%> </li>
+    <li> Trip to <%= link_to vaca.destination.name, vacation_path(vaca)%> on <%= "#{vaca.month_start} #{vaca.day_start}, #{vaca.year_start}" %> </li>
 <% end %>
 </ol>
 
+<p class="edit-item"><%= link_to "Edit your user information", edit_user_path(@current_user)%> | <%= link_to "Edit your password", edit_password_path(@current_user)%></p>
 <%= button_to "Logout", logout_path, method: "delete"%>
 

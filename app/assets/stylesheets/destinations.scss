@@ -1,3 +1,12 @@
 // Place all the styles related to the Destinations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+ul.destination-container {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.destination-child {
+    flex-basis: 25%;
+}

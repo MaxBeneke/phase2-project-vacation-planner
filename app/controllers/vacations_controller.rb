@@ -14,6 +14,8 @@ class VacationsController < ApplicationController
         @destinations = Destination.all
         if flash[:attributes]
             @vacation = Vacation.new(flash[:attributes])
+        elsif flash[:destination]
+            @vacation = Vacation.new(destination_id: flash[:destination])
         else
             @vacation = Vacation.new
         end
@@ -60,8 +62,14 @@ class VacationsController < ApplicationController
     end
 
     def add_activity
-        VacationActivity.create(vacation: find_vacation, activity: find_vacation.search_for_activity(params[:name]))
-        redirect_to vacation_path(find_vacation)
+        @vaca_activity = VacationActivity.create(vacation: find_vacation, activity: find_vacation.search_for_activity(params[:name]))
+        if @vaca_activity.valid?
+           redirect_to vacation_path(find_vacation)
+        else 
+            flash[:errors] = @vaca_activity.errors.full_messages
+            redirect_to find_activity_path(find_vacation)
+        end
+
     end
 
     def destroy

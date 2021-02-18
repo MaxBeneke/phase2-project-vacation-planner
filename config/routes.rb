@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # resources :destinations
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root to: "pages#home"
+  root to: "users#login"
 
   ### User ###
   get "/users", to: "users#index", as: "users"
@@ -57,6 +57,9 @@ Rails.application.routes.draw do
   delete "/flights/:id/destroy_arrival", to: "flights#destroy_arrival"
   get "/flights/:id", to: "flights#show", as: "flight"
   
+  ### Vacation Activities
+
+  delete "/vacation_activities/:id", to: "vacation_activities#destroy", as: "delete_activity"
 
 
 end

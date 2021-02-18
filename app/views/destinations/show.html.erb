@@ -6,4 +6,15 @@
 
 <p>Highlights: <%= @destination.highlights%></p>
 
+<h3> Activities </h3>
+<ul> 
+    <% @destination.activities.each do |activity| %>
+        <li> <%= activity.name %> - Cost: <%= activity.price %> </li>
+    <% end %>
+</ul>
+
+<p> <%= link_to "Book this Vacation", new_vacation_path %></p>
+<% flash[:destination] = @destination.id %>
+<%= button_to "Go Back", user_path(current_user), method: "get" %>
+
 

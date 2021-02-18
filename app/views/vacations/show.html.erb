@@ -26,7 +26,7 @@
 <% if @vacation.activities.size > 0 %>
     <ul>
         <% @vacation.activities.each do |activity| %>
-            <li> <%= activity.name %>, price: $<%= activity.price %> </li>
+            <li> <%= activity.name %>, price: $<%= activity.price %> <%= button_to "Delete", delete_activity_path(VacationActivity.find_by(activity: activity)), method: "delete" %> </li>
         <% end %>
     </ul>
 <% end %>
