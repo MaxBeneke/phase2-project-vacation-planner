@@ -1,12 +1,49 @@
 // Place all the styles related to the Destinations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+h1 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
 ul.destination-container {
+    height: 200px; 
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .destination-child {
     flex-basis: 25%;
+}
+
+.back-button {
+    position: relative;
+    bottom: 40px;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+div.paragraph-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+p.paragraph {
+    font-family: Garamond;
+    font-size: 18px;
+}
+
+div.list {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+p.language {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 20px;
 }

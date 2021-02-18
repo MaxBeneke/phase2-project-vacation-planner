@@ -1,20 +1,24 @@
 <h1><%= @destination.name%> Info Page </h1>
 
-<p>Language: <%=@destination.language%></p>
+<p class="language">Language: <%=@destination.language%></p>
 
-<p><%= @destination.description %></p>
+<div class="paragraph-container">
+    <p class="paragraph"><%= @destination.description %></p>
+    <p class="paragraph">Highlights: <%= @destination.highlights%></p>
+</div>
 
-<p>Highlights: <%= @destination.highlights%></p>
-
+<div class="list">
 <h3> Activities </h3>
 <ul> 
     <% @destination.activities.each do |activity| %>
         <li> <%= activity.name %> - Cost: <%= activity.price %> </li>
     <% end %>
 </ul>
+</div>
 
+<div class="back-button">
 <p> <%= link_to "Book this Vacation", new_vacation_path %></p>
 <% flash[:destination] = @destination.id %>
-<%= button_to "Go Back", user_path(current_user), method: "get" %>
-
+    <%= link_to "Go back to Destinations Page", destinations_path%>
+</div>
 
