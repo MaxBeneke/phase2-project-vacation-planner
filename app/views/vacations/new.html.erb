@@ -16,7 +16,8 @@
     <%= f.collection_select :month_end, Vacation.months, :itself, :itself %>
      <%= f.label :day_end, "Return Day" %>
     <%= f.collection_select :day_end, (1..31).to_a, :itself, :itself %>
-    <%= f.submit %>
+    <%= f.submit "Create Vacation", :class => "submit_button"%>
 
-    <%= link_to "Go Back to Home Page", user_path(current_user) %>
 <% end %>
+
+<%= link_to "Go Back to Home Page", user_path(current_user) %>

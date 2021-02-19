@@ -7,12 +7,12 @@
 <% if @vacation.departure_flight %>
     <% flash[:vacation_id] = @vacation.id %>
     <p> Your flight to <%= @vacation.destination.name %> departs at <%= @vacation.departure_flight.departure_time %> and arrives at <%= @vacation.departure_flight.destination_airport%> at <%= @vacation.departure_flight.arrival_time %> </p>
-    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", method: "delete" %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", { :id => "submit_button", method: "delete"} %> </p>
 <% end %>
 <% if @vacation.arrival_flight %>
     <% flash[:vacation_id] = @vacation.id %>
     <p> Your return flight from <%= @vacation.destination.name %> leaves at <%= @vacation.arrival_flight.departure_time %> and arrives at <%= @vacation.arrival_flight.arrival_time %> </p>
-    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", method: "delete" %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", { :id => "submit_button", method: "delete"} %> </p>
 <% end %>
 
 <h2>General information about <%= @vacation.destination.name%></h2>
@@ -48,5 +48,5 @@
 
 <div class="delete-button">
     <p> <%= link_to "Back to Homepage", user_path(current_user) %>
-    <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :method => "delete"} %>
+    <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :id=> "submit_button", :method => "delete"} %>
 </div>

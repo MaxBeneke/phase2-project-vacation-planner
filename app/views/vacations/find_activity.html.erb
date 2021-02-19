@@ -6,7 +6,7 @@
 <%= form_tag do %>
     <%= label_tag :name %>
     <%= select_tag :name, options_for_select(@vacation.destination.activities.collect{|activity| activity.name}) %>
-    <%= submit_tag "Add Activity" %>
+    <%= submit_tag "Add Activity", :class => "submit_button" %>
 <% end %>
 </div>
 

@@ -8,7 +8,7 @@
     <%= text_field_tag :username %>
     <%= label_tag :email %>
     <%= email_field_tag :email %>
-    <%= submit_tag "Edit Account"%>
+    <%= submit_tag "Edit Account", :class => "submit_button"%>
 <% end %>
 
 <%= link_to "Go Back", user_path(current_user) %>

@@ -38,3 +38,16 @@ div.paragraph-container {
     margin-right: 20px;
     padding: 10px;
 }
+
+a:hover{
+    color: orange;
+}
+
+.submit_button {
+    background-color: orchid;
+    border-radius: 100px;
+}
+
+.submit_button:hover {
+    background-color: seagreen;
+}
