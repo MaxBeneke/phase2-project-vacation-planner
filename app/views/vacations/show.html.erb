@@ -1,7 +1,8 @@
 <h1><%= "Your planned vacation to #{@vacation.destination.name}"%></h1>
-<h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
-<p><%= link_to "Add departure flight", add_flight_path %></p>
-<p><%= link_to "Add return flight", add_flight_path %></p>
+<div class="vaca-info">
+    <h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
+    <p class="flight-change"><%= link_to "Add departure flight", add_flight_path %></p>
+    <p class="flight-change"><%= link_to "Add return flight", add_flight_path %></p>
 
 <% if @vacation.departure_flight %>
     <% flash[:vacation_id] = @vacation.id %>
@@ -17,6 +18,7 @@
 <h2>General information about <%= @vacation.destination.name%></h2>
 
 <p>Language: <%=@vacation.destination.language%></p>
+</div>
 
 <div class="paragraph-container">
 <p class="paragraph"><%= @vacation.destination.description %></p>
@@ -31,7 +33,7 @@
         </ul>
 </div>
 
-
+<div class="vaca-info">
 <h3>Activities</h3>
 <% if @vacation.activities.size > 0 %>
     <ul>
@@ -40,7 +42,11 @@
         <% end %>
     </ul>
 <% end %>
+
 <%= link_to "Add an Activity", find_activity_path %>
+</div>
 
-
-<%= button_to "delete this vacation", delete_vacation_path(@vacation), method: "delete" %>
+<div class="delete-button">
+    <p> <%= link_to "Back to Homepage", user_path(current_user) %>
+    <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :method => "delete"} %>
+</div>

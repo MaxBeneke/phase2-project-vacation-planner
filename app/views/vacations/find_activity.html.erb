@@ -2,8 +2,12 @@
 
 <%= render '/shared/errors' %>
 
+<div class="form" id="center-form">
 <%= form_tag do %>
     <%= label_tag :name %>
     <%= select_tag :name, options_for_select(@vacation.destination.activities.collect{|activity| activity.name}) %>
     <%= submit_tag "Add Activity" %>
 <% end %>
+</div>
+
+<%= link_to "Go Back", vacation_path(@vacation), class: "center-link" %>

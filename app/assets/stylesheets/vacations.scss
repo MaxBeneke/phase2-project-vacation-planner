@@ -2,3 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+div.vaca-info {
+    margin-left: 20px;
+    width: 50%;
+}
+
+p.flight-change {
+    position: relative;
+    text-align: center;
+    margin-right: 230px;
+}
+
+.delete-button {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-child {
+    flex-basis: 10%;
+}
+
+.center-link {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#center-form {
+    margin: 0 auto;
+    top: 50%;
+}
