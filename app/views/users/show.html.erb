@@ -17,5 +17,5 @@
 </ol>
 
 <p class="edit-item"><%= link_to "Edit your user information", edit_user_path(@current_user)%> | <%= link_to "Edit your password", edit_password_path(@current_user)%></p>
-<%= button_to "Logout", logout_path, method: "delete", :class => "submit_button"%>
+<%= button_to "Logout", logout_path, method: "delete", :class => "submit_button", :id => "logout-user"%>
 
