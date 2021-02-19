@@ -34751,3 +34751,719 @@ Processing by VacationsController#show as HTML
 Completed 200 OK in 20ms (Views: 11.4ms | ActiveRecord: 5.6ms | Allocations: 11349)
 
 
+Started GET "/vacations/1/find_activity" for ::1 at 2021-02-19 00:54:35 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationsController#find_activity as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.4ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/find_activity.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.3ms | Allocations: 224)
+  [1m[36mDestination Load (1.5ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:8
+  [1m[36mActivity Load (1.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/views/vacations/find_activity.html.erb:8:in `collect'
+  Rendered vacations/find_activity.html.erb within layouts/application (Duration: 59.5ms | Allocations: 18477)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 109.7ms | Allocations: 48291)
+Completed 200 OK in 168ms (Views: 82.4ms | ActiveRecord: 60.9ms | Allocations: 71322)
+
+
+Started POST "/vacations/1/find_activity" for ::1 at 2021-02-19 00:54:39 -0500
+Processing by VacationsController#add_activity as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"Bus Tour", "commit"=>"Add Activity", "id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (2.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  [1m[36mDestination Load (2.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/vacation.rb:34:in `search_for_activity'
+  [1m[36mActivity Load (1.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."destination_id" = $1[0m  [["destination_id", 1]]
+  ↳ app/models/vacation.rb:34:in `search_for_activity'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/vacations_controller.rb:65:in `add_activity'
+  [1m[36mVacationActivity Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vacation_activities" WHERE "vacation_activities"."activity_id" = $1 AND "vacation_activities"."vacation_id" = $2 LIMIT $3[0m  [["activity_id", 1], ["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:65:in `add_activity'
+  [1m[36mVacationActivity Create (4.5ms)[0m  [1m[32mINSERT INTO "vacation_activities" ("activity_id", "vacation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["activity_id", 1], ["vacation_id", 1], ["created_at", "2021-02-19 05:54:39.144003"], ["updated_at", "2021-02-19 05:54:39.144003"]]
+  ↳ app/controllers/vacations_controller.rb:65:in `add_activity'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/vacations_controller.rb:65:in `add_activity'
+  [1m[36mVacationActivity Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vacation_activities" WHERE "vacation_activities"."activity_id" = $1 AND "vacation_activities"."id" != $2 AND "vacation_activities"."vacation_id" = $3 LIMIT $4[0m  [["activity_id", 1], ["id", 1], ["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:66:in `add_activity'
+  [1m[36mVacation Load (1.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+Redirected to http://localhost:3000/vacations/1
+Completed 302 Found in 72ms (ActiveRecord: 31.8ms | Allocations: 13263)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-19 00:54:39 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (2.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:7
+  [1m[36mFlight Load (1.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "arrivals" ON "flights"."id" = "arrivals"."flight_id" WHERE "arrivals"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:12
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:38
+  [1m[36mActivity Load (1.1ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:40
+  [1m[36mVacationActivity Load (0.7ms)[0m  [1m[34mSELECT "vacation_activities".* FROM "vacation_activities" WHERE "vacation_activities"."activity_id" = $1 LIMIT $2[0m  [["activity_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:41
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendered vacations/show.html.erb within layouts/application (Duration: 66.6ms | Allocations: 22069)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 70.3ms | Allocations: 25974)
+Completed 200 OK in 77ms (Views: 42.2ms | ActiveRecord: 30.5ms | Allocations: 28581)
+
+
+Started GET "/vacations/1" for ::1 at 2021-02-19 00:55:46 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.6ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  Rendered vacations/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 4082)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 4154)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.4ms | Allocations: 7389)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= "Your planned vacation to #{@vacation.destination.name}"%></h1>
+<div class="vaca-info">
+    <h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
+    <p class="flight-change"><%= link_to "Add departure flight", add_flight_path %></p>
+    <p class="flight-change"><%= link_to "Add return flight", add_flight_path %></p>
+
+<% if @vacation.departure_flight %>
+    <% flash[:vacation_id] = @vacation.id %>
+    <p> Your flight to <%= @vacation.destination.name %> departs at <%= @vacation.departure_flight.departure_time %> and arrives at <%= @vacation.departure_flight.destination_airport%> at <%= @vacation.departure_flight.arrival_time %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", { :id => "submit_button", method: "delete"} %> </p>
+<% end %>
+<% if @vacation.arrival_flight %>
+    <% flash[:vacation_id] = @vacation.id %>
+    <p> Your return flight from <%= @vacation.destination.name %> leaves at <%= @vacation.arrival_flight.departure_time %> and arrives at <%= @vacation.arrival_flight.arrival_time %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", { :id => "submit_button", method: "delete"} %> </p>
+<% end %>
+
+<h2>General information about <%= @vacation.destination.name%></h2>
+
+<p>Language: <%=@vacation.destination.language%></p>
+</div>
+
+<div class="paragraph-container">
+<p class="paragraph"><%= @vacation.destination.description %></p>
+</div>
+
+<div class="list">
+    <h5>Highlights</h5>
+        <ul>
+        <% @vacation.destination.highlights_to_hash.each do |key, value|%>
+            <li><%= link_to key, value, :target => '_blank'%></li>
+        <% end %>
+        </ul>
+</div>
+
+<div class="vaca-info">
+<h3>Activities</h3>
+<% if @vacation.activities.size > 0 %>
+    <ul>
+        <% @vacation.activities.each do |activity| %>
+            <li> <%= activity.name %>, price: $<%= activity.price %> <%= button_to "Delete", delete_activity_path(VacationActivity.find_by(activity: activity)), { id: "submit_button", method: "delete" %> </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= link_to "Add an Activity", find_activity_path %>
+</div>
+
+<div class="delete-button">
+    <p> <%= link_to "Back to Homepage", user_path(current_user) %>
+    <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :id=> "submit_button", :method => "delete"} %>
+</div>
+):
+1:    <h1><%= "Your planned vacation to #{@vacation.destination.name}"%></h1>
+2:    <div class="vaca-info">
+3:        <h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
+4:        <p class="flight-change"><%= link_to "Add departure flight", add_flight_path %></p>
+5:        <p class="flight-change"><%= link_to "Add return flight", add_flight_path %></p>
+6:    
+7:    <% if @vacation.departure_flight %>
+8:        <% flash[:vacation_id] = @vacation.id %>
+9:        <p> Your flight to <%= @vacation.destination.name %> departs at <%= @vacation.departure_flight.departure_time %> and arrives at <%= @vacation.departure_flight.destination_airport%> at <%= @vacation.departure_flight.arrival_time %> </p>
+10:        <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", { :id => "submit_button", method: "delete"} %> </p>
+11:    <% end %>
+12:    <% if @vacation.arrival_flight %>
+13:        <% flash[:vacation_id] = @vacation.id %>
+14:        <p> Your return flight from <%= @vacation.destination.name %> leaves at <%= @vacation.arrival_flight.departure_time %> and arrives at <%= @vacation.arrival_flight.arrival_time %> </p>
+15:        <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", { :id => "submit_button", method: "delete"} %> </p>
+16:    <% end %>
+17:    
+18:    <h2>General information about <%= @vacation.destination.name%></h2>
+19:    
+20:    <p>Language: <%=@vacation.destination.language%></p>
+21:    </div>
+22:    
+23:    <div class="paragraph-container">
+24:    <p class="paragraph"><%= @vacation.destination.description %></p>
+25:    </div>
+26:    
+27:    <div class="list">
+28:        <h5>Highlights</h5>
+29:            <ul>
+30:            <% @vacation.destination.highlights_to_hash.each do |key, value|%>
+31:                <li><%= link_to key, value, :target => '_blank'%></li>
+32:            <% end %>
+33:            </ul>
+34:    </div>
+35:    
+36:    <div class="vaca-info">
+37:    <h3>Activities</h3>
+38:    <% if @vacation.activities.size > 0 %>
+39:        <ul>
+40:            <% @vacation.activities.each do |activity| %>
+41:                <li> <%= activity.name %>, price: $<%= activity.price %> <%= button_to "Delete", delete_activity_path(VacationActivity.find_by(activity: activity)), { id: "submit_button", method: "delete" %> </li>
+42:            <% end %>
+43:        </ul>
+44:    <% end %>
+45:    
+46:    <%= link_to "Add an Activity", find_activity_path %>
+47:    </div>
+48:    
+49:    <div class="delete-button">
+50:        <p> <%= link_to "Back to Homepage", user_path(current_user) %>
+51:        <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :id=> "submit_button", :method => "delete"} %>
+52:    </div>
+  
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+Started GET "/vacations/1" for ::1 at 2021-02-19 00:56:06 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (0.8ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  Rendered vacations/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1673)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1744)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.7ms | Allocations: 5113)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= "Your planned vacation to #{@vacation.destination.name}"%></h1>
+<div class="vaca-info">
+    <h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
+    <p class="flight-change"><%= link_to "Add departure flight", add_flight_path %></p>
+    <p class="flight-change"><%= link_to "Add return flight", add_flight_path %></p>
+
+<% if @vacation.departure_flight %>
+    <% flash[:vacation_id] = @vacation.id %>
+    <p> Your flight to <%= @vacation.destination.name %> departs at <%= @vacation.departure_flight.departure_time %> and arrives at <%= @vacation.departure_flight.destination_airport%> at <%= @vacation.departure_flight.arrival_time %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", { :id => "submit_button", method: "delete"} %> </p>
+<% end %>
+<% if @vacation.arrival_flight %>
+    <% flash[:vacation_id] = @vacation.id %>
+    <p> Your return flight from <%= @vacation.destination.name %> leaves at <%= @vacation.arrival_flight.departure_time %> and arrives at <%= @vacation.arrival_flight.arrival_time %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", { :id => "submit_button", method: "delete"} %> </p>
+<% end %>
+
+<h2>General information about <%= @vacation.destination.name%></h2>
+
+<p>Language: <%=@vacation.destination.language%></p>
+</div>
+
+<div class="paragraph-container">
+<p class="paragraph"><%= @vacation.destination.description %></p>
+</div>
+
+<div class="list">
+    <h5>Highlights</h5>
+        <ul>
+        <% @vacation.destination.highlights_to_hash.each do |key, value|%>
+            <li><%= link_to key, value, :target => '_blank'%></li>
+        <% end %>
+        </ul>
+</div>
+
+<div class="vaca-info">
+<h3>Activities</h3>
+<% if @vacation.activities.size > 0 %>
+    <ul>
+        <% @vacation.activities.each do |activity| %>
+            <li> <%= activity.name %>, price: $<%= activity.price %> <%= button_to "Delete", delete_activity_path(VacationActivity.find_by(activity: activity)), { :id => "submit_button", method: "delete" %> </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= link_to "Add an Activity", find_activity_path %>
+</div>
+
+<div class="delete-button">
+    <p> <%= link_to "Back to Homepage", user_path(current_user) %>
+    <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :id=> "submit_button", :method => "delete"} %>
+</div>
+):
+1:    <h1><%= "Your planned vacation to #{@vacation.destination.name}"%></h1>
+2:    <div class="vaca-info">
+3:        <h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
+4:        <p class="flight-change"><%= link_to "Add departure flight", add_flight_path %></p>
+5:        <p class="flight-change"><%= link_to "Add return flight", add_flight_path %></p>
+6:    
+7:    <% if @vacation.departure_flight %>
+8:        <% flash[:vacation_id] = @vacation.id %>
+9:        <p> Your flight to <%= @vacation.destination.name %> departs at <%= @vacation.departure_flight.departure_time %> and arrives at <%= @vacation.departure_flight.destination_airport%> at <%= @vacation.departure_flight.arrival_time %> </p>
+10:        <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", { :id => "submit_button", method: "delete"} %> </p>
+11:    <% end %>
+12:    <% if @vacation.arrival_flight %>
+13:        <% flash[:vacation_id] = @vacation.id %>
+14:        <p> Your return flight from <%= @vacation.destination.name %> leaves at <%= @vacation.arrival_flight.departure_time %> and arrives at <%= @vacation.arrival_flight.arrival_time %> </p>
+15:        <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", { :id => "submit_button", method: "delete"} %> </p>
+16:    <% end %>
+17:    
+18:    <h2>General information about <%= @vacation.destination.name%></h2>
+19:    
+20:    <p>Language: <%=@vacation.destination.language%></p>
+21:    </div>
+22:    
+23:    <div class="paragraph-container">
+24:    <p class="paragraph"><%= @vacation.destination.description %></p>
+25:    </div>
+26:    
+27:    <div class="list">
+28:        <h5>Highlights</h5>
+29:            <ul>
+30:            <% @vacation.destination.highlights_to_hash.each do |key, value|%>
+31:                <li><%= link_to key, value, :target => '_blank'%></li>
+32:            <% end %>
+33:            </ul>
+34:    </div>
+35:    
+36:    <div class="vaca-info">
+37:    <h3>Activities</h3>
+38:    <% if @vacation.activities.size > 0 %>
+39:        <ul>
+40:            <% @vacation.activities.each do |activity| %>
+41:                <li> <%= activity.name %>, price: $<%= activity.price %> <%= button_to "Delete", delete_activity_path(VacationActivity.find_by(activity: activity)), { :id => "submit_button", method: "delete" %> </li>
+42:            <% end %>
+43:        </ul>
+44:    <% end %>
+45:    
+46:    <%= link_to "Add an Activity", find_activity_path %>
+47:    </div>
+48:    
+49:    <div class="delete-button">
+50:        <p> <%= link_to "Back to Homepage", user_path(current_user) %>
+51:        <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :id=> "submit_button", :method => "delete"} %>
+52:    </div>
+  
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+Started GET "/vacations/1" for ::1 at 2021-02-19 00:56:40 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.9ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  Rendered vacations/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1672)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1744)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 3.4ms | Allocations: 4974)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= "Your planned vacation to #{@vacation.destination.name}"%></h1>
+<div class="vaca-info">
+    <h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
+    <p class="flight-change"><%= link_to "Add departure flight", add_flight_path %></p>
+    <p class="flight-change"><%= link_to "Add return flight", add_flight_path %></p>
+
+<% if @vacation.departure_flight %>
+    <% flash[:vacation_id] = @vacation.id %>
+    <p> Your flight to <%= @vacation.destination.name %> departs at <%= @vacation.departure_flight.departure_time %> and arrives at <%= @vacation.departure_flight.destination_airport%> at <%= @vacation.departure_flight.arrival_time %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", { :id => "submit_button", method: "delete"} %> </p>
+<% end %>
+<% if @vacation.arrival_flight %>
+    <% flash[:vacation_id] = @vacation.id %>
+    <p> Your return flight from <%= @vacation.destination.name %> leaves at <%= @vacation.arrival_flight.departure_time %> and arrives at <%= @vacation.arrival_flight.arrival_time %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", { :id => "submit_button", method: "delete"} %> </p>
+<% end %>
+
+<h2>General information about <%= @vacation.destination.name%></h2>
+
+<p>Language: <%=@vacation.destination.language%></p>
+</div>
+
+<div class="paragraph-container">
+<p class="paragraph"><%= @vacation.destination.description %></p>
+</div>
+
+<div class="list">
+    <h5>Highlights</h5>
+        <ul>
+        <% @vacation.destination.highlights_to_hash.each do |key, value|%>
+            <li><%= link_to key, value, :target => '_blank'%></li>
+        <% end %>
+        </ul>
+</div>
+
+<div class="vaca-info">
+<h3>Activities</h3>
+<% if @vacation.activities.size > 0 %>
+    <ul>
+        <% @vacation.activities.each do |activity| %>
+            <li> <%= activity.name %>, price: $<%= activity.price %> <%= button_to "Delete", delete_activity_path(VacationActivity.find_by(activity: activity)), { id: "submit_button", method: "delete" %> } </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= link_to "Add an Activity", find_activity_path %>
+</div>
+
+<div class="delete-button">
+    <p> <%= link_to "Back to Homepage", user_path(current_user) %>
+    <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :id=> "submit_button", :method => "delete"} %>
+</div>
+):
+1:    <h1><%= "Your planned vacation to #{@vacation.destination.name}"%></h1>
+2:    <div class="vaca-info">
+3:        <h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
+4:        <p class="flight-change"><%= link_to "Add departure flight", add_flight_path %></p>
+5:        <p class="flight-change"><%= link_to "Add return flight", add_flight_path %></p>
+6:    
+7:    <% if @vacation.departure_flight %>
+8:        <% flash[:vacation_id] = @vacation.id %>
+9:        <p> Your flight to <%= @vacation.destination.name %> departs at <%= @vacation.departure_flight.departure_time %> and arrives at <%= @vacation.departure_flight.destination_airport%> at <%= @vacation.departure_flight.arrival_time %> </p>
+10:        <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", { :id => "submit_button", method: "delete"} %> </p>
+11:    <% end %>
+12:    <% if @vacation.arrival_flight %>
+13:        <% flash[:vacation_id] = @vacation.id %>
+14:        <p> Your return flight from <%= @vacation.destination.name %> leaves at <%= @vacation.arrival_flight.departure_time %> and arrives at <%= @vacation.arrival_flight.arrival_time %> </p>
+15:        <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", { :id => "submit_button", method: "delete"} %> </p>
+16:    <% end %>
+17:    
+18:    <h2>General information about <%= @vacation.destination.name%></h2>
+19:    
+20:    <p>Language: <%=@vacation.destination.language%></p>
+21:    </div>
+22:    
+23:    <div class="paragraph-container">
+24:    <p class="paragraph"><%= @vacation.destination.description %></p>
+25:    </div>
+26:    
+27:    <div class="list">
+28:        <h5>Highlights</h5>
+29:            <ul>
+30:            <% @vacation.destination.highlights_to_hash.each do |key, value|%>
+31:                <li><%= link_to key, value, :target => '_blank'%></li>
+32:            <% end %>
+33:            </ul>
+34:    </div>
+35:    
+36:    <div class="vaca-info">
+37:    <h3>Activities</h3>
+38:    <% if @vacation.activities.size > 0 %>
+39:        <ul>
+40:            <% @vacation.activities.each do |activity| %>
+41:                <li> <%= activity.name %>, price: $<%= activity.price %> <%= button_to "Delete", delete_activity_path(VacationActivity.find_by(activity: activity)), { id: "submit_button", method: "delete" %> } </li>
+42:            <% end %>
+43:        </ul>
+44:    <% end %>
+45:    
+46:    <%= link_to "Add an Activity", find_activity_path %>
+47:    </div>
+48:    
+49:    <div class="delete-button">
+50:        <p> <%= link_to "Back to Homepage", user_path(current_user) %>
+51:        <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :id=> "submit_button", :method => "delete"} %>
+52:    </div>
+  
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+Started GET "/vacations/1" for ::1 at 2021-02-19 00:56:41 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.7ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  Rendered vacations/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1666)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1737)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 3.1ms | Allocations: 4198)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= "Your planned vacation to #{@vacation.destination.name}"%></h1>
+<div class="vaca-info">
+    <h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
+    <p class="flight-change"><%= link_to "Add departure flight", add_flight_path %></p>
+    <p class="flight-change"><%= link_to "Add return flight", add_flight_path %></p>
+
+<% if @vacation.departure_flight %>
+    <% flash[:vacation_id] = @vacation.id %>
+    <p> Your flight to <%= @vacation.destination.name %> departs at <%= @vacation.departure_flight.departure_time %> and arrives at <%= @vacation.departure_flight.destination_airport%> at <%= @vacation.departure_flight.arrival_time %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", { :id => "submit_button", method: "delete"} %> </p>
+<% end %>
+<% if @vacation.arrival_flight %>
+    <% flash[:vacation_id] = @vacation.id %>
+    <p> Your return flight from <%= @vacation.destination.name %> leaves at <%= @vacation.arrival_flight.departure_time %> and arrives at <%= @vacation.arrival_flight.arrival_time %> </p>
+    <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", { :id => "submit_button", method: "delete"} %> </p>
+<% end %>
+
+<h2>General information about <%= @vacation.destination.name%></h2>
+
+<p>Language: <%=@vacation.destination.language%></p>
+</div>
+
+<div class="paragraph-container">
+<p class="paragraph"><%= @vacation.destination.description %></p>
+</div>
+
+<div class="list">
+    <h5>Highlights</h5>
+        <ul>
+        <% @vacation.destination.highlights_to_hash.each do |key, value|%>
+            <li><%= link_to key, value, :target => '_blank'%></li>
+        <% end %>
+        </ul>
+</div>
+
+<div class="vaca-info">
+<h3>Activities</h3>
+<% if @vacation.activities.size > 0 %>
+    <ul>
+        <% @vacation.activities.each do |activity| %>
+            <li> <%= activity.name %>, price: $<%= activity.price %> <%= button_to "Delete", delete_activity_path(VacationActivity.find_by(activity: activity)), { id: "submit_button", method: "delete" %> } </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= link_to "Add an Activity", find_activity_path %>
+</div>
+
+<div class="delete-button">
+    <p> <%= link_to "Back to Homepage", user_path(current_user) %>
+    <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :id=> "submit_button", :method => "delete"} %>
+</div>
+):
+1:    <h1><%= "Your planned vacation to #{@vacation.destination.name}"%></h1>
+2:    <div class="vaca-info">
+3:        <h2> Dates: <%= "#{@vacation.month_start} #{@vacation.day_start}, #{@vacation.year_start}" %> to <%= "#{@vacation.month_end} #{@vacation.day_end}, #{@vacation.year_end}" %> </h2>
+4:        <p class="flight-change"><%= link_to "Add departure flight", add_flight_path %></p>
+5:        <p class="flight-change"><%= link_to "Add return flight", add_flight_path %></p>
+6:    
+7:    <% if @vacation.departure_flight %>
+8:        <% flash[:vacation_id] = @vacation.id %>
+9:        <p> Your flight to <%= @vacation.destination.name %> departs at <%= @vacation.departure_flight.departure_time %> and arrives at <%= @vacation.departure_flight.destination_airport%> at <%= @vacation.departure_flight.arrival_time %> </p>
+10:        <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.departure_flight.id}/destroy_departure", { :id => "submit_button", method: "delete"} %> </p>
+11:    <% end %>
+12:    <% if @vacation.arrival_flight %>
+13:        <% flash[:vacation_id] = @vacation.id %>
+14:        <p> Your return flight from <%= @vacation.destination.name %> leaves at <%= @vacation.arrival_flight.departure_time %> and arrives at <%= @vacation.arrival_flight.arrival_time %> </p>
+15:        <p> <%= button_to "Delete this Flight", "/flights/#{@vacation.arrival_flight.id}/destroy_arrival", { :id => "submit_button", method: "delete"} %> </p>
+16:    <% end %>
+17:    
+18:    <h2>General information about <%= @vacation.destination.name%></h2>
+19:    
+20:    <p>Language: <%=@vacation.destination.language%></p>
+21:    </div>
+22:    
+23:    <div class="paragraph-container">
+24:    <p class="paragraph"><%= @vacation.destination.description %></p>
+25:    </div>
+26:    
+27:    <div class="list">
+28:        <h5>Highlights</h5>
+29:            <ul>
+30:            <% @vacation.destination.highlights_to_hash.each do |key, value|%>
+31:                <li><%= link_to key, value, :target => '_blank'%></li>
+32:            <% end %>
+33:            </ul>
+34:    </div>
+35:    
+36:    <div class="vaca-info">
+37:    <h3>Activities</h3>
+38:    <% if @vacation.activities.size > 0 %>
+39:        <ul>
+40:            <% @vacation.activities.each do |activity| %>
+41:                <li> <%= activity.name %>, price: $<%= activity.price %> <%= button_to "Delete", delete_activity_path(VacationActivity.find_by(activity: activity)), { id: "submit_button", method: "delete" %> } </li>
+42:            <% end %>
+43:        </ul>
+44:    <% end %>
+45:    
+46:    <%= link_to "Add an Activity", find_activity_path %>
+47:    </div>
+48:    
+49:    <div class="delete-button">
+50:        <p> <%= link_to "Back to Homepage", user_path(current_user) %>
+51:        <%= button_to "Delete this Vacation", delete_vacation_path(@vacation), {:class => "delete-button-class", :id=> "submit_button", :method => "delete"} %>
+52:    </div>
+  
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:41: syntax error, unexpected ')', expecting '}'
+app/views/vacations/show.html.erb:42: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:44: syntax error, unexpected end, expecting ')'
+app/views/vacations/show.html.erb:54: syntax error, unexpected end, expecting ')'
+Started GET "/vacations/1" for ::1 at 2021-02-19 00:57:01 -0500
+Processing by VacationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mVacation Load (1.3ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE Vacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:87:in `find_vacation'
+  Rendering layout layouts/application.html.erb
+  Rendering vacations/show.html.erb within layouts/application
+  [1m[36mDestination Load (1.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:1
+  [1m[36mFlight Load (1.9ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "departures" ON "flights"."id" = "departures"."flight_id" WHERE "departures"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:7
+  [1m[36mFlight Load (1.9ms)[0m  [1m[34mSELECT "flights".* FROM "flights" INNER JOIN "arrivals" ON "flights"."id" = "arrivals"."flight_id" WHERE "arrivals"."vacation_id" = $1 LIMIT $2[0m  [["vacation_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:12
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:38
+  [1m[36mActivity Load (1.6ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "vacation_activities" ON "activities"."id" = "vacation_activities"."activity_id" WHERE "vacation_activities"."vacation_id" = $1[0m  [["vacation_id", 1]]
+  ↳ app/views/vacations/show.html.erb:40
+  [1m[36mVacationActivity Load (1.2ms)[0m  [1m[34mSELECT "vacation_activities".* FROM "vacation_activities" WHERE "vacation_activities"."activity_id" = $1 LIMIT $2[0m  [["activity_id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacations/show.html.erb:41
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  Rendered vacations/show.html.erb within layouts/application (Duration: 24.1ms | Allocations: 7371)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | Allocations: 11692)
+Completed 200 OK in 43ms (Views: 22.1ms | ActiveRecord: 13.4ms | Allocations: 14952)
+
+
