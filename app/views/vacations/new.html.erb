@@ -1,23 +1,25 @@
 <h1>Plan a new vacation</h1>
 <%= render "/shared/errors" %>
 
+<div class="new-form">
 <%= form_for @vacation do |f| %>
-    <%= f.label :destination_id%>
-    <%= f.collection_select :destination_id, @destinations, :id, :name %>
-    <%= f.label :year_start, "Year" %>
-    <%= f.collection_select :year_start, (Time.now.year..Time.now.year+1).to_a, :itself, :itself %>
-    <%= f.label :month_start, "Month" %>
-    <%= f.collection_select :month_start, Vacation.months, :itself, :itself %>
-     <%= f.label :day_start, "Day" %>
-    <%= f.collection_select :day_start, (1..31).to_a, :itself, :itself %>
-    <%= f.label :year_end, "Return Year" %>
-    <%= f.collection_select :year_end, (Time.now.year..Time.now.year+1).to_a, :itself, :itself %>
-    <%= f.label :month_end, "Return Month" %>
-    <%= f.collection_select :month_end, Vacation.months, :itself, :itself %>
-     <%= f.label :day_end, "Return Day" %>
-    <%= f.collection_select :day_end, (1..31).to_a, :itself, :itself %>
+    <%= f.label :destination_id, {:class => "form-new-child"}%>
+    <%= f.collection_select :destination_id, @destinations, :id, :name, {:class => "form-new-child"} %>
+    <%= f.label :year_start, "Year", {:class => "form-new-child"} %>
+    <%= f.collection_select :year_start, (Time.now.year..Time.now.year+1).to_a, :itself, :itself, {:class => "form-new-child"} %>
+    <%= f.label :month_start, "Month", {:class => "form-new-child"} %>
+    <%= f.collection_select :month_start, Vacation.months, :itself, :itself, {:class => "form-new-child"} %>
+     <%= f.label :day_start, "Day", {:class => "form-new-child"} %>
+    <%= f.collection_select :day_start, (1..31).to_a, :itself, :itself, {:class => "form-new-child"} %>
+    <%= f.label :year_end, "Return Year", {:class => "form-new-child"} %>
+    <%= f.collection_select :year_end, (Time.now.year..Time.now.year+1).to_a, :itself, :itself, {:class => "form-new-child"} %>
+    <%= f.label :month_end, "Return Month", {:class => "form-new-child"} %>
+    <%= f.collection_select :month_end, Vacation.months, :itself, :itself, {:class => "form-new-child"} %>
+     <%= f.label :day_end, "Return Day", {:class => "form-new-child"} %>
+    <%= f.collection_select :day_end, (1..31).to_a, :itself, :itself, {:class => "form-new-child"} %>
     <%= f.submit "Create Vacation", :class => "submit_button"%>
 
 <% end %>
+</div>
 
-<%= link_to "Go Back to Home Page", user_path(current_user) %>
+<p class="delete-button", id="go-back"> <%= link_to "Go Back to Home Page", user_path(current_user) %> </p>

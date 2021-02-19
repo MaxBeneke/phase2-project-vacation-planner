@@ -40,6 +40,18 @@ p.flight-change {
     flex-basis: 10%;
 }
 
+.new-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-new-child {
+    flex-basis: 10%
+}
+
 .center-link {
     display: block;
     margin-bottom: 10px;
@@ -49,4 +61,8 @@ p.flight-change {
 #center-form {
     margin: 0 auto;
     top: 50%;
+}
+
+#go-back {
+    margin-top: 50px;
 }
