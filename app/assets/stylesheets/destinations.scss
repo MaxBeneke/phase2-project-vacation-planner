@@ -9,10 +9,14 @@ ul.destination-container {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    padding: 10px;
+    margin-bottom: 100px;
 }
 
 .destination-child {
     flex-basis: 25%;
+    align-items: center;
+    text-align: center;
 }
 
 .back-button {
@@ -24,6 +28,15 @@ ul.destination-container {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+#destination-back {
+    text-align: right;
+    right: 100px;
+    display: block;
+    position: fixed;
+    bottom: 100px;
+    width: 100%;
+}
+
 div.paragraph-container {
     margin-left: 20px;
     margin-right: 20px;
@@ -33,4 +46,8 @@ div.paragraph-container {
 p.language {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-left: 20px;
+}
+
+#super-div {
+    height: 100%;
 }

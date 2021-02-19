@@ -1,12 +1,15 @@
-<h1>All possible destinations </h1>
+<div id="super-div">
+   <h1>All possible destinations </h1>
 
-<ul class="destination-container">
-<% @destinations.each do |destination| %>
-   <!-- <li class="destination-child"> <img src="#{destination.picture}" alt="#{destination.name}" width="300" height="300"> </li> -->
-   <li class="destination-child"> <%= link_to destination.name, destination_path(destination) %> </li>
-<%end%>
-</ul>
+   <ul class="destination-container">
+   <% @destinations.each do |destination| %>
+      <li class="destination-child"> <%= link_to destination.name, destination_path(destination) %> <br>
+      <a href=<%="/destinations/#{destination.id}"%>>
+         <img src=<%="#{destination.picture}"%> alt=<%="#{destination.name}"%> width="300" height="200"></a> </li> 
+   <%end%>
+   </ul>
 
-<div class="back-button">
-   <%= link_to "Go back to Home Page", user_path(current_user) %>
+   <div id="destination-back">
+      <%= link_to "Go back to Home Page", user_path(current_user) %>
+   </div>
 </div>
